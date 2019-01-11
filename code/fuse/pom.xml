@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.redhat.gpte.training.agile</groupId>
+    <artifactId>all</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <name>Advanced Agile Integration :: Fuse :: Use Case :: All</name>
+
+    <modules>
+        <module>01_file-split-and-transform</module>
+        <module>02_rest-split-and-transform</module>
+        <module>03_rest-publish-and-fix-errors</module>
+        <module>04_enrich-content-REST-and-WS-microservices</module>
+    </modules>
+
+</project>

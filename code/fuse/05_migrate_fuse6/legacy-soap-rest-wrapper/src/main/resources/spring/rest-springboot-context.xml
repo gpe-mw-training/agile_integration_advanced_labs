@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd         http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <camelContext id="cxfrs" xmlns="http://camel.apache.org/schema/spring">
+        <dataFormats>
+            <xmljson id="xmljson"/>
+        </dataFormats>
+        <restConfiguration bindingMode="json" component="servlet"
+            host="localhost" port="8081"/>
+        <rest id="rest-59f6c427-899a-4bab-9df5-917a92820ab4" path="/jaxrs">
+            <put consumes="application/json"
+                id="put-f9c9007e-962e-442a-92f0-c0f93713b4d8"
+                outType="org.fuse.usecase.service.CorporateAccount"
+                type="org.fuse.usecase.service.Account" uri="/account">
+                <to uri="direct:updateAccount"/>
+            </put>
+        </rest>
+        <route id="updateAccount">
+            <from id="_from1" uri="direct:updateAccount"/>
+            <log id="_log1" loggingLevel="INFO" message="updateAccount"/>
+            <to id="_to1" uri="cxf://http://soap-service-ai-advanced.apps.d764.openshift.opentlc.com/ws/customerService?serviceClass=org.fuse.usecase.service.CustomerWS&amp;defaultOperationName=updateAccount"/>
+            <setHeader headerName="Content-Type" id="_setHeader1">
+                <constant>application/json</constant>
+            </setHeader>
+            <setBody id="_setBody1">
+                <simple>${body[0]}</simple>
+            </setBody>
+        </route>
+    </camelContext>
+</beans>

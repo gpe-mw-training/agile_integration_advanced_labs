@@ -1,0 +1,33 @@
+spec:
+  template:
+    spec:
+      containers:
+        - 
+          resources:
+            requests:
+              cpu: "1.0"
+              memory: 512Mi
+            limits:
+              cpu: "1.0"
+              memory: 1Gi
+          env:
+          - name: SPRING_APPLICATION_JSON
+            value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
+          - name: AMQP_HOST
+            value: broker-amq-amqp
+          - name: REST_HOST
+            value: rest-cxfrs-service
+          - name: REST_PORT
+            value: 8080
+          - name: SOAP_HOST
+            value: soap-cxfws-service                      
+          - name: SOAP_PORT
+            value: 8080               
+          - name: POSTGRESQL_SERVICE_NAME
+            value: postgresql
+          - name: POSTGRESQL_SERVICE_DATABASE
+            value: sampledb
+          - name: POSTGRESQL_SERVICE_USERNAME
+            value: postgres
+          - name: POSTGRESQL_SERVICE_PASSWORD
+            value: postgres

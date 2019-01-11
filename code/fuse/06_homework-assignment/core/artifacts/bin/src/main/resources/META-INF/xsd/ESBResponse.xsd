@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.response.app.customer.com" xmlns="http://www.response.app.customer.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" elementFormDefault="qualified">
+    <xs:element name="ESBResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="MessageId" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="RecordIdentifier" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="MessageType" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="Publisher" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="Destination" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="BusinessKey" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="EUID" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="ProviderID" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="FacilityID" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="ESBMessageSignature" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="ESBProcessDate" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="Published" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="Comment" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="MessageId" type="xs:string"/>
+    <xs:element name="RecordIdentifier" type="xs:string"/>
+    <xs:element name="MessageType" type="xs:string"/>
+    <xs:element name="Publisher" type="xs:string"/>
+    <xs:element name="Destination" type="xs:string"/>
+    <xs:element name="BusinessKey" type="xs:string"/>
+    <xs:element name="EUID" type="xs:string"/>
+    <xs:element name="ProviderID" type="xs:string"/>
+    <xs:element name="FacilityID" type="xs:string"/>
+    <xs:element name="ESBMessageSignature" type="xs:string"/> 
+    <xs:element name="ESBProcessDate" type="xs:dateTime"/>
+    <xs:element name="Published" type="xs:boolean"/>
+    <xs:element name="Comment" type="xs:string"/>
+</xs:schema>

@@ -1,0 +1,1392 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.app.customer.com" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://www.app.customer.com">
+    <xs:annotation>
+        <xs:documentation>The Person domain contains information about Persons and other living entities. Despite the package name, this package also includes animals, because they might be recipients of care or might be the subject of tests for either research or public health purposes.
+
+            The Person domain also contains concepts associated with Persons (or Animals) when they are acting in the role of a Patient or other subject of interest in a healthcare setting. This includes employment and occupational information as well as contact party information and next of kin information. Concepts associated with Persons acting in the role of a healthcare provider are not modeled here, but rather in a separate Provider package. That package also contains educational and specialty information suitable for credentialing purposes.
+
+            This package contains two additional packages, one for birth certificate information and one for death certificate information. While nearly all Persons will have a birth certificate, and eventually a death certificate, this information is not needed about Persons in every circumstance. That having been said, some information such as birth date is typically recorded about persons and is also found on the birth certificate. To handle these overlaps, some information is duplicated in both the Person class and the birth or death certificate observations, some observations are shared between the two (such as cause of death), and others are expected to be derivable. Implementers have the flexibility to determine how best to instantiate these concepts for their purposes.
+
+            The Person domain references three other packages: Provider, Common, and Datatypes.
+
+            Concepts associated with Persons (and Organizations) acting in the role of a healthcare Provider are modeled in the Provider package.
+
+            Classes that are used in multiple domains are modeled in the Common package.
+
+            The FHIM uses simple or â€œprimitiveâ€ datatypes wherever possible, but does define several common structures. See the Datatypes package for details on these.</xs:documentation>
+    </xs:annotation>
+    <xs:element name="AdvanceDirective" type="AdvanceDirective"/>
+    <xs:complexType name="AdvanceDirective">
+        <xs:annotation>
+            <xs:documentation>A legal document (as a living will or durable power of attorney for healthcare) signed by a competent person to provide guidance for medical and health-care decisions (as the termination of life support or organ donation) in the event the person becomes incompetent to make such decisions.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="category" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Categorizes the kind of Advance Directive.
+                        "Indicates the patient's instructions to the healthcare facility." - HL7 Version 2.8, PD1-15.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="comments" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Remarks concerning the Advance Directive.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="datelastverified" type="xs:int" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The date that ... the advance directive [was] last validated." - HL7 Version 2.8, PD1-21.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="effectivedaterange" type="TimeInterval" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The time period over which the Advance Directive is effective. Note that the end date is typically blank for active Advance Directives.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="image" type="Image" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>A scanned image of the signed paper form, if applicable.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="paperlocator" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Information to locate the original paper form, if applicable.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="status" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Indicates the state of the Advance Directive, as defined in the Act state-transition model in the HL7 RIM. Possible values include: New, Held, Canceled, Active, Suspended, Aborted, Completed, Nullified, and Obsolete.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ContactMechanism" type="ContactMechanism"/>
+    <xs:complexType name="ContactMechanism">
+        <xs:annotation>
+            <xs:documentation>Contact Mechanism
+
+                Phone
+                Fax
+                email
+                Website </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="contactmechanismtype" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Contact Mechanism Type</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="effectivedaterange" type="TimeInterval" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Effective Date Range</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="istextmessageenabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="universalrecordid" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="NullFlavors">
+        <xs:annotation>
+            <xs:documentation>"The value as represented in the instance is not a member of the set of permitted data values in the constrained value domain of a variable." - HL7 V3</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="askedbutunknown"/>
+            <xs:enumeration value="derived"/>
+            <xs:enumeration value="invalid"/>
+            <xs:enumeration value="masked"/>
+            <xs:enumeration value="negativeinfinity"/>
+            <xs:enumeration value="noinformation"/>
+            <xs:enumeration value="notapplicable"/>
+            <xs:enumeration value="notasked"/>
+            <xs:enumeration value="positiveinfinity"/>
+            <xs:enumeration value="sufficientquantity"/>
+            <xs:enumeration value="temporarilyunavailable"/>
+            <xs:enumeration value="trace"/>
+            <xs:enumeration value="unencoded"/>
+            <xs:enumeration value="unknown"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="RateQuantity" type="RateQuantity"/>
+    <xs:complexType name="RateQuantity">
+        <xs:annotation>
+            <xs:documentation>Rate: "A certain quantity or amount of one thing considered in relation to a unit of another thing and used as a standard or measure: at the rate of 60 miles an hour." - Dictionary.com This class represents a ratio of some Physical Quantity over a period of time. This class is structurally similar to other Ratio classes (e.g., IntegerRatio), except the denominator is by definition a TimeQuantity.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="denominator" type="TimeQuantity" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The quantity that divides the numerator in the ratio. The denominator SHALL not be zero." - HL7 V3 This property is by definition a period of time, with the unit almost always one. For example, one hour, one minute, etc.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="numerator" type="PhysicalQualtity" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The quantity that is being divided in the ratio. The default is the integer number 1 (one)." - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PowerOfAttorney" type="PowerOfAttorney"/>
+    <xs:complexType name="PowerOfAttorney">
+        <xs:annotation>
+            <xs:documentation>Power of Attorney - "A power of attorney (POA) ... is an authorization to act on someone else's behalf in a legal or business matter." - wikipedia</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="AdvanceDirective">
+                <xs:sequence>
+                    <xs:element name="Purpose" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Categorizes the Power of Attorney</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Person" type="Person" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="Image" type="Image"/>
+    <xs:complexType name="Image">
+        <xs:annotation>
+            <xs:documentation>Image - This class represents an Image, particularly but not limited to, diagnostic images. The class may also be used for scanned documents and incoming facsimiles.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="contents" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Contains the image itself. The datatype is modeled as a string, however it will likely be implemented as some kind of binary type in most platforms, depending on the application.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="id" type="ID" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Uniquely identifies the image.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="HealthRecord" type="HealthRecord"/>
+    <xs:complexType name="HealthRecord">
+        <xs:annotation>
+            <xs:documentation>Patient's Health Record - This class is used to store a reference to the health record that is the subject of the consent rules in the Consent Directive.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="recordid" type="ID" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The id of the record that is the target of a consent directive.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="recordlocation" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The location of the record that is the target of a consent directive.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="effectivedaterange" type="TimeInterval" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Effective Date and Time based on HealthCare Record.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="status" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Status can be
+                        1) Opt In - Yes or Opt Out - No
+                        2) True or False
+                        3) Active or In-active </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="TimeInterval" type="TimeInterval"/>
+    <xs:complexType name="TimeInterval">
+        <xs:annotation>
+            <xs:documentation>This data type represents an Interval, where the Low and High Limits are Points In Time. An Interval is a "set of consecutive values of an ordered base data type." - HL7 V3 A PointInTime is "a quantity specifying a point on the axis of natural time. A point in time is most often represented as a calendar expression." - HL7 V3</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="high" type="PointInTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The high limit of the interval. The high limit SHALL NOT be negative infinity, and SHALL be higher than the low limit if one exists." - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="low" type="PointInTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The low limit of the interval. The low limit SHALL NOT be positive infinity." - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="width" type="TimeQuantity" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The difference between HIGH and LOW boundary. The purpose of distinguishing width is to handle all cases of incomplete information symmetrically. In any IVL representation only two of the three properties HIGH, LOW, and width need to be stated: the third can be derived. When both boundaries are known, width can be derived as HIGH minus LOW. When one boundary and width is known, the other boundary is also known. When no boundary is known, width may still be known. For example, one knows that an activity takes about 30 minutes, but one may not yet know when that activity is started." - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="BirthAddress" type="BirthAddress"/>
+    <xs:complexType name="BirthAddress">
+        <xs:annotation>
+            <xs:documentation>Birth Address</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="city" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="state" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="country" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="LonicAnswerCode" type="LonicAnswerCode"/>
+    <xs:complexType name="LonicAnswerCode">
+        <xs:annotation>
+            <xs:documentation>A specialization of Code which contains properties necessary to support LOINC-coded answers to assessment questions.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="NullableCode">
+                <xs:sequence>
+                    <xs:element name="laccode" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"The plain code symbol defined by the code system, or an expression in a syntax defined by the code system which describes the concept." - HL7 V3</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="laccodesystem" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"The code system that defines the code." - HL7 V3</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="laccodesystemname" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"The common name of the coding system." - HL7 V3</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="laccodesystemversion" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"If applicable, a version descriptor defined specifically for the given code system." - HL7 V3</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="score" type="Real" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>The value assigned to this code in the code System. - HL7 V3.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="sequencenumber" type="xs:int" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>The order in which this answer is displayed among the list of possible answers, as defined bythe code system. The ordering of both questions and the possible answers to them are important, as they may influence the way people answer them. The sequencing of the answers is not necessarily related to the value (or score) of the answer.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="answer" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>The text associated with the answer. In assessment instruments, each possible answer has a specific wording. This property holds that wording.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="CauseOfDeath" type="CauseOfDeath"/>
+    <xs:complexType name="CauseOfDeath">
+        <xs:annotation>
+            <xs:documentation>Biological Entity - Cause of death - The condition(s) that caused or contributed to the death of the organism. For Humans, the U.S. Standard Certificate of Death (Rev 11/2003) requires the entry of "the chain of events-diseases, injuries, or complications-that directly caused the death", beginning with the "immediate cause (final disease or condition resulting in death)" and ending with the "underlying cause (disease or injury that initiated the events resulting in death)." Note the CDC Center for Vital Statistics is required to report this information to the World Health Organization (WHO). The WHO requires that this data be reported using ICD-10 codes. For Non-humans, the coding system to be used for non-humans has not been determined at this time. Added 11/23/2010 for Problem List.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="causeofdeath" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>[US Standard Certificate Of Death Field 32]. A condition that caused or contributed to the death of the organism.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="timeinterval" type="TimeQuantity" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Time interval cause of death - [US Standard Certificate Of Death Field 32]. The approximate interval between onset of the identified condition and death.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="precedence" type="xs:int" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Causal order of the cause of death entries, i.e., primary, secondary, etc.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="LanguageCapability" type="LanguageCapability"/>
+    <xs:complexType name="LanguageCapability">
+        <xs:annotation>
+            <xs:documentation>Language Capability</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="ispreferred" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Preferred Language 1 - Yes or 0 - No </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="language" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Language Code - A language for which the Person has some level of proficiency for written or spoken communication.
+                        "The patient's primary language. HL7 recommends using ISO table 639" - HL7 Version 2.8, PID-15.
+                        "The next of kin/associated party's primary speaking language." - HL7 Version 2.8, NK1-20.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="methodofexpression" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Method of Expression - The means by which the person is capable of communicating in the language. Examples of method of expression would be written and spoken.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="proficiencylevel" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Language Proficiency Level - "A value representing the level of proficiency in a language." - HL7 V3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PersonName" type="PersonName"/>
+    <xs:complexType name="PersonName">
+        <xs:annotation>
+            <xs:documentation>Person Name </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="prefix" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="given" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="nickname" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="family" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="suffix" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="initials" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="middle" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Middle Name </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ID" type="ID"/>
+    <xs:complexType name="ID">
+        <xs:annotation>
+            <xs:documentation>An identifier that uniquely identifies a thing or object. This *abstract* data type represents a "identifier" - some series of letters or numbers which uniquely identifies something. In practice, this data type will be substituted with specific "flavors" of the Id data type for use in particular standards-based payloads.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is a placeholder for the "entity identifier," which is usually defined to be unique within the series of identifiers created by the "assigning authority". Note that this property will be replaced by some other concept or group of concepts when this abstract class is replaced by a specific class for a given target platform.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="idtype" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Indicates what kind of identifier is being represented. For example, the idType might be represent a Driver's License, in which case the assigning Authority might be the Virginia Department of Motor Vehicles. Note that: a) this information can (and probably should) be also be made clear by the name and definition of the property whose data type is an Id; and b) this property might be an enumeration in the future.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="assigningauthority" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is a placeholder for the "assigning authority", which is a unique identifier of the system (or organization or agency or department) that creates the data. Note that this property will be replaced by some other concept or group of concepts when this abstract class is replaced by a specific class for a given target platform.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="USUniformedServicesPerson" type="USUniformedServicesPerson"/>
+    <xs:complexType name="USUniformedServicesPerson">
+        <xs:annotation>
+            <xs:documentation>Uniformed Services Person  or Military Services Person - This class represents information about a person while in the role of a member of the United States Uniformed Services, which includes military and Public Health Service members.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="militarybranch" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Identifies the organization (uniformed service) for which the person holds a uniformed rank.
+                        "This field is defined by CMS or other regulatory agencies." - HL7 Version 2.8, PD1-19.
+                        Possible values include (from HL7 Table 140): US Army; US Navy; US Air Force; US Marine Corps; US Coast Guard; US Public Health Service; National Oceanic and Atmospheric Administration.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="militaryrank" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>An official position or grade; e.g., the rank of sergeant.
+                        "Identifies the military rank/grade of the patient." - HL7 Version 2.8, PD1-20.
+                        Possible values include: Sergeant, Captain, etc. Note that HL7 references a user-defined table (Table 141) which lists possible grades, but not the corresponding ranks.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="militarystatus" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Indicates the latest known state of the USUniformedServicesPerson instance (i.e., the state of association (relationship) between the Person and the Uniformed Service). Possible values include: Active duty, Reservist, Discharged.
+                        "This field is defined by CMS or other regulatory agencies." - HL7 Version 2.8, PD1-21. Possible values include (from HL7 Table 142): Active duty; Retired; Deceased.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="militarygrade" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>A military, naval, or civil service rank
+                        "Identifies the military rank/grade of the patient." - HL7 Version 2.8, PD1-20.
+                        Possible values (from HL7 Table 141) include: E1...E9; O1...O9; W1...W4.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="effectivedaterange" type="TimeInterval" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PhysicalQuantityInterval" type="PhysicalQuantityInterval"/>
+    <xs:complexType name="PhysicalQuantityInterval">
+        <xs:annotation>
+            <xs:documentation>This data type represents an Interval, where the Low and High Limits are Physical Quantities. An Interval is a "set of consecutive values of an ordered base data type." - HL7 V3 A Physical Quantity is "a dimensioned quantity expressing the result of measuring" - HL7 V3</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="highunit" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The high limit of the interval. The high limit SHALL NOT be negative infinity, and SHALL be higher than the low limit if one exists." - HL7 V3. This property contains the Unit of Measure of the high limit.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="highvalue" type="Real" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The high limit of the interval. The high limit SHALL NOT be negative infinity, and SHALL be higher than the low limit if one exists." - HL7 V3. This property contains the numeric portion (i.e., not including any units of measure) of the high limit.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="lowunit" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The low limit of the interval. The low limit SHALL NOT be positive infinity." - HL7 V3. This property containsthe Unit of Measure of the low limit.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="lowvalue" type="Real" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The low limit of the interval. The low limit SHALL NOT be positive infinity." - HL7 V3 This property contains the numeric portion (i.e., not including any units of measure) of the low limit.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Code" type="Code"/>
+    <xs:complexType name="Code">
+        <xs:annotation>
+            <xs:documentation>Code </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="code" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is a placeholder for the "code", which is a unique identifier of an entry in a coding system. Note that this property will be replaced by some other concept or group of concepts when this abstract class is replaced by a specific class for a given target platform.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="displaytext" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is a placeholder for the "display text" or "designation", which is the human-readable string representing the concept. Note that this property will be replaced by some other concept or group of concepts when this abstract class is replaced by a specific class for a given target platform.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="codesystem" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is a placeholder for the "coding system", which is a identifies the coding scheme or coding system of which the code is a member. Note that this property will be replaced by some other concept or group of concepts when this abstract class is replaced by a specific class for a given target platform.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="codesystemversion" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is a placeholder for the "coding system version", which is identifies the version coding scheme or coding system of which the code is a member. Note that this property will be replaced by some other concept or group of concepts when this abstract class is replaced by a specific class for a given target platform. This version number identifies the possible members of a coding system as of a particular time. If a coding system isn't formally versioned, such as NDC, the date on which the coding system was published could be used here.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="CodedOrdinal" type="CodedOrdinal"/>
+    <xs:complexType name="CodedOrdinal">
+        <xs:annotation>
+            <xs:documentation>"Coded data, where the coding system from which the code comes defines a partial or complete order on some or all of the codes in the system. Codes may be assigned a numerical value, but this is not required. [This datatype] adds semantics related to ordering and/or numerical values...." - HL7 V3.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="Code">
+                <xs:sequence>
+                    <xs:element name="value" type="Real" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>The value assigned to this code in the code System. - HL7 V3.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="BiologicalEntity" type="BiologicalEntity"/>
+    <xs:complexType name="BiologicalEntity">
+        <xs:annotation>
+            <xs:documentation>Entity - Person - Biological Entity</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="Parties">
+                <xs:sequence>
+                    <xs:element name="age" type="xs:int" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>The length of time that an organism has lived. Note that this property will typically be derived or calculated as needed, and as such may not always be present as a separate concept. Added 7/8/10 for vMR.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="agegroup" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>This is a user-defined property that categorizes a person or animal entity based on their age. The strata used to classify the entity vary according to the purpose of use, therefore this property is derived and ought never be considered outside the context of the stratification.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="dateofdeath" type="PointInTime" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"Contains the date and time at which the patient death occurred." - HL7 Version 2.8, PID-29.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="isdeceased" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Can be used for filtering out old records.  "Indicates whether the patient is deceased." - HL7 Version 2.8, PID-30.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="deathcertificatenumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="isorgandonor" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Indicates whether the patient has consented to be an organ donor upon their demise.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="multiplebirthorder" type="xs:int" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>If the biological entity was born along with other siblings, this property indicates the order the entity was born. For example, for a set of twins, this property indicates which twin was born first and which was born second. This property is primarily used to distinguish records for newborn infants who have not yet have been given names. This property may also be used in research situations to distinguish individuals who were part of a multi-child pregnancy.
+                                "When a patient was part of a multiple birth, a value (number) indicating the patient's birth order is entered in this field." - HL7 Version 2.8, PID-25.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ageatdeath" type="TimeQuantity" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Date of Birth</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="wasmultiplebirth" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>This property serves as an indication as to whether the person was born along with other siblings as part of a single pregnancy. This property is primarily used to distinguish records for newborn infants who have not yet have been given names. This property may also be used in research situations to distinguish individuals who were part of a multi-child pregnancy.
+                                "Indicates whether the patient was part of a multiple birth." - HL7 Version 2.8, PID-24.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="dateofbirth" type="PointInTime" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="Patient" type="Patient" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="CauseOfDeath" type="CauseOfDeath" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="PatientInformation" type="PatientInformation"/>
+    <xs:complexType name="PatientInformation">
+        <xs:annotation>
+            <xs:documentation>Patient Specific information</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="ishospice" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>DVA - isHospice</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="anticipatedfdod" type="TimeInterval" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="actualfdod" type="TimeInterval" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="hospicestartdate" type="TimeInterval" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="homelocationphyfirstname" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="homelocationphylastname" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Patient" type="Patient"/>
+    <xs:complexType name="Patient">
+        <xs:annotation>
+            <xs:documentation>Patient - a person receiving or registered to receive medical treatment.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="begindate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>As a Patient Begin Date</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="enddate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>As a patient End Date</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="mothersidentifier" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="patientid" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Patient Unique Identification based on source system</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="sourcesystemidentifier" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Source System Identifier - Patient ID originated in which system. </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="locationid" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Patient Home Location ID - This can be facility</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="facilitynumber" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Facility Number</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="locationtype" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Location Type - Home, Visiting ,Clinic</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="status" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Indicates the state of the Patient Role instance. This property is used, among other purposes, to determine whether the Patient should be included in a particular population, such as the "denominator" for various quality-reporting criteria. Possible values are Active, Inactive-Moved or gone elsewhere, Inactive-Lost to follow up, Inactive-Unspecified, Inactive-Permanently. Note that the preceeding four Inactive states correspond to the V3 Terminated state.
+
+                        Note, for public health reporting purposes, this status indicates the active/inactive status of the patient at the provider site level. See MIROW â€œManagement of Moved or Gone Elsewhere (MOGE) and Other Patient Status Designations in IIS guidelines.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HealthcareProvider" type="HealthcareProvider" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="HealthRecord" type="HealthRecord" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="PatientInformation" type="PatientInformation" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="CodeWithOriginalText" type="CodeWithOriginalText"/>
+    <xs:complexType name="CodeWithOriginalText">
+        <xs:annotation>
+            <xs:documentation>A specialization of Code which additionally contains a property to hold the original text as seen and/or selected by the user who entered the data</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="Code">
+                <xs:sequence>
+                    <xs:element name="originaltext" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"The text as seen and/or selected by the user who entered the data which represents the intended meaning of the user." - HL7 V3</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="PersonPension" type="PersonPension"/>
+    <xs:complexType name="PersonPension">
+        <xs:annotation>
+            <xs:documentation>Person Participate in Pension Scheme</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="pensionnumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="pensionexpirationdate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Pension Expiration Date</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Person" type="Person"/>
+    <xs:complexType name="Person">
+        <xs:annotation>
+            <xs:documentation>Person </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="BiologicalEntity">
+                <xs:sequence>
+                    <xs:element name="systemcode" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>System Code and Local Id to be unique. See precedence section to learn what happens if more than one record exists with this combination. </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="updatetimestamp" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>TYYYYMMDDHHMMSS format. Used for precedence rules. ( EMPI project) </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="localid" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>The local id can contain digits as well as characters. It cannot contain punctuation. </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="birthname" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="legalname" type="PersonName" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>The name by which a person is known or legally identified such as the name on a driver's license or passport. Note that the data type for this property is a PersonName, which includes the various parts that make up a person's name such as family name, prefixes, suffixes, etc. Note that in HL7, the PersonName data type contains a type code to indicate what kind of name is being referenced. The FHIM explicitly models the name type, so in this case the attribute name is "Legal Name", and the type code would be set to "Legal Name" when targeting an HL7 implementation.
+
+                                "Contains one or more of the names of the patient...." - HL7 Version 2.8, PID-5.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="alternatename" type="PersonName" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Alternate/Former Name - A self asserted name that the person is using or has used. Note that the data type for this property is a PersonName, which includes the various parts that make up a person's name such as family name, prefixes, suffixes, etc. Note that in HL7, the PersonName data type contains a type code to indicate what kind of name is being referenced. The FHIM explicitly models the name type, so in this case the attribute name is "AlternateName", and the type code would be set to "Pseudonym" when targeting an HL7 implementation. "AlternateName is equivalent Pseudonym.
+
+                                "Contains one or more of the names of the patient...." - HL7 Version 2.8, PID-5.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="spousename" type="PersonName" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Spouse name - This can be added to the Person Relationship Table</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="mothersmaidenname" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"The family name under which the [person's] mother was born (i.e., before marriage). It is used to distinguish between patients with the same last name." - HL7 Version 2.8, PID-6.
+                                "The maiden name of the next of kin/associated party's mother." - HL7 Version 2.8, NK1-26.
+                                This property is typically used for identity management purposes, especially to distinguish between persons who may have similar or identical names.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="fathername" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Father Name - Required for Child as patient </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="mothername" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Father Name - Required for Child as patient </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ssn" type="ID" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Social Security Number</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="race" type="Code" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Race of a person</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="religion" type="Code" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>
+                                1. a set of beliefs concerning the cause, nature, and purpose of the universe, especially when considered as the creation of a superhuman agency or agencies, usually involving devotional and ritual observances, and often containing a moral code governing the conduct of human affairs.
+                                2. a specific fundamental set of beliefs and practices generally agreed upon by a number of persons or sects: the Christian religion; the Buddhist religion.
+                                3. the body of persons adhering to a particular set of beliefs and practices: a world council of religions.
+                                4. the life or state of a monk, nun, etc.: to enter religion.
+                                5. the practice of religious beliefs; ritual observance of faith.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="birthaddress" type="BirthAddress" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>A simplified version of a Postal Address which contains only a city, state, and country, all of which are optional. This is used to record a person's place of birth, used for identificaton and statistical purposes.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="vipflag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>VIP flag </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="veteranstatus" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Veteran Status </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="driverslicensestate" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="repatriationnumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="districtofresidence" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="lgacode" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Local Government Area - A spatial unit which represents the whole geographical area of responsibility of an incorporated Local Government Council, an Aboriginal or Island Council in Queensland, or a Community Government Council (CGC) in the Northern Territory.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="commentvalue" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Any Comment Value - pre-defined </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="gender" type="Code" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Gender - Male, Female, other</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="maritalstatus" type="Code" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Marital Status - "The domestic partnership status of a person." - HL7 Version 3 RIM.
+                                "Contains the patient's marital (civil) status." - HL7 Version 2.8, PID-16.
+                                "Contains the next of kin/associated party's marital status." - HL7 Version 2.8, NK1-14.
+                                HL7 Version 2 has the following suggested values (table 2): Separated; Divorced; Married; Single; Widowed; Common law; Living together; Domestic partner; Registered domestic partner; Legally Separated; Annulled; Interlocutory; Unmarried; Unknown; Other; Unreported.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ethnicity" type="Code" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>A group of people whose members identify with each other, through a common heritage, often consisting of a common language, a common culture (often including a shared religion) and an ideology that stresses common ancestry or endogamy . In addition, an ethnic group often shares an interest in a homeland connected with a specific geographical area and common traditions, including food preferences (Wikipedia). Note that unlike race, which concentrates on a person s physical heritage, ethnicity is concerned with the cultural heritage with which a person identifies themselves. Examples of ethnicity include: German, Scandinavian, Italian, Irish, etc. These ethnic groups are of the same race (Caucasian, or white ). Note also that the set of ethnicity values used may vary based on the purpose for collecting this information. The U.S. Office of Management and Budget (OMB) issues a set to be used for census purposes. See OMB publication 15. This property may contain more than one ethnicity for a given person, identified in no particular order.
+                                "This field further defines the patient's ancestry." - HL7 Version 2.8, PID-22.
+                                "The next of kin/associated party's ethnic group." - HL7 Version 2.8, NK1-28.
+                                HL7 Version 2 has the following suggested values (table 189): Hispanic or Latino; Not Hispanic or Latino; Unknown.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="administrativegender" type="NullableCode" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"Gender is used to refer to administrative sex rather than biological sex and therefore should easily be classified into female and male. It is included in the exchange for purposes of linking to insurance information and other patient identification linkages and the value chosen by the patient should reflect the information under which any insurance or financial information will be filed, as well as the same information given to other healthcare providers, institutions or health data exchange networks" - HITSP C154
+
+                                "The gender (i.e., the behavioral, cultural, or psychological traits typically associated with one sex) of a living subject as defined for administrative purposes. This attribute does not include terms related to clinical gender. Gender is a complex physiological, genetic, and sociological concept that requires multiple observations in order to be comprehensively described. The purpose of this attribute is to provide a high-level classification that can also be used for the appropriate allocation of inpatient bed assignment. - HL7 Version 3 RIM.
+
+                                Note that the this concept is restricted to those societal roles as perceived in the United States and other Western cultures.
+
+                                "The patient's sex." - HL7 Version 2.8, PID-8.
+                                "The next of kin/associated party's sex." - HL7 Version 2.8, NK1-15.
+                                HL7 Version 2 has the following suggested values (table 1): Female; Male; Other; Unknown; Ambiguous; Not applicable.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="religiousaffiliation" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Identifies a set of spiritual beliefs to which the person adheres. This property is used primarily to accommodate the person's religious preferences in clinical settings.
+                                "The ... religious preference of a person (e.g. Hinduism, Islam, Roman Catholic). - HL7 Version 3 RIM.
+                                "Contains the patient's religion." - HL7 Version 2.8, PID-17.
+                                "The type of religion practiced by the next of kin/associated party." - HL7 Version 2.8, NK1-25.
+                                Note that HL7 Version 2 table 6 lists 85 suggested values for this field.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="preferredcontactmethod" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>The preferred method by which this person should be contacted. Possible values include: primaryHomePhone, temporaryEmail, etc. Added for MyHealtheVet.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="primaryhomeaddress" type="Address" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>A physical address for the person's primary place of residence. Note that in HL7, the Address data type contains a type code to indicate what kind of address is being referenced. The FHIM explicitly models the address type, so in this case the attribute name is "Primary Home Address", and the type code would be set to "Primary Home" when targeting an HL7 implementation.
+                                "Contains the address of the patient. Multiple addresses for the same person may be sent." - HL7 Version 2.8, PID-11.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="primaryhomeemail" type="ContactMechanism" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="primaryhomephone" type="ContactMechanism" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Primary Home Phone Extension </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="primaryhomephoneextension" type="ContactMechanism" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="primarycellphone" type="ContactMechanism" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="primaryhomepager" type="ContactMechanism" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="workaddress" type="Address" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="workemail" type="ContactMechanism" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="workphone" type="ContactMechanism" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="workphoneextension" type="ContactMechanism" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="workpager" type="ContactMechanism" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="temporaryaddress" type="Address" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="temporaryemail" type="ContactMechanism" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="temporaryphone" type="ContactMechanism" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="temporaryphoneextension" type="ContactMechanism" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Temporary Phone Extension </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="temporarypager" type="ContactMechanism" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="handicap" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"Indicates the nature of the patient's permanent handicapped condition (e.g., deaf, blind). A handicapped condition is defined as a physical or mental disability that is permanent." - HL7 Version 2.8, PD1-6.
+
+                                Note that this property is included in the FHIM for compatibility to HL7 V2, although we have not yet identified a particular need for it by partner agencies. It is therefore modeled as an optional element. In addition, the potential values for this field are currently unknown. Therefore we have modeled it as a String rather than a Code, because we currently do not have a use case which requires a particular set of values. Note also that HL7 identifies a Code Table (Table 295) for this property, but does not provide any suggested values.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="identityrealibilitycode" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"Contains a coded value used to communicate information regarding the reliability of patient/person identifying data transmitted via a transaction. Values could indicate that certain fields on a PID segment for a given patient/person are known to be false (e.g., use of default or system-generated values for Date of Birth or Social Security Number)." - HL7 Version 2.8, PID-32. HL7 Version 2 has the following suggested values (table 445): Unknown/Default Social Security Number; Unknown/Default Date of Birth; Unknown/Default Address; Patient/Person Name is an Alias. Suggest that the FHIM use something like: Unreliable Social Security Number, Unreliable Date of Birth, Unreliable Address; Unreliable Name.
+
+                                Note that this property is included in the FHIM for compatibility to HL7 V2, although we have not yet identified a particular need for it by partner agencies. It is therefore modeled as an optional element. In addition, the potential values for this field are currently unknown. Therefore we have modeled it as a String rather than a Code, because we currently do not have a use case which requires a particular set of values. Note also that HL7 identifies a Code Table (Table 445) for this property, but does not provide any suggested values.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="isidentityunknown" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"Indicates whether or not the patient's/person's identity is known." - HL7 Version 2.8, PID-31.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="istranslatorneeded" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Indicates whether this person needs translation services due to an inability to speak English. Added for Public Health Reporting 6/14/2012.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="lastupdatefacility" type="ID" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"Identifies the facility of the last update to a patient's/person's identifying and demographic data, as defined in the PID segment...." - HL7 Version 2.8, PID-34.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="livingarrangement" type="Code" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"The housing situation of a person. This attribute is used for discharge planning, social service assessment, and psychosocial evaluation." - HL7 Version 3 RIM.
+                                "The situation in which the patient lives at his residential address. Examples might include Alone, Family, Relatives, Institution, etc." - HL7 Version 2.8, PD1-2.
+                                "The situation that the associated party lives in at his/her residential address." - HL7 Version 2.8, NK1-21.
+                                Possible values include (from HL7 Table 220): Alone; Family; Institution; Relative; Unknown; Spouse Only.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="livingdependency" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>"Identifies specific living conditions (e.g., spouse dependent on patient, walk-up) that are relevant to an evaluation of the patient's healthcare needs. This information can be used for discharge planning. This field repeats because, for example, "spouse dependent" and "medical supervision required" can apply at the same time." - HL7 Version 2.8, PD1-1.
+
+                                "Identifies specific living conditions (e.g., spouse dependent on patient, walk-up) that are relevant to an evaluation of the patient's healthcare needs. This information can be used for discharge planning. Examples might include Spouse Dependent, Medical Supervision Required, Small Children Dependent." - HL7 Version 2.8, NK1-17.
+
+                                Possible values include (from HL7 V2 Table 223): Spouse Dependent; Medical Supervision Required; Small Children Dependent; Other; Unknown.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="billingaddress" type="Address" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Billing Address used by Reggie</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="billingemail" type="ContactMechanism" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Billing Address Email used by Reggie</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="billingphone" type="ContactMechanism" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Billing Address Phone used by Reggie</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="billingphoneextension" type="ContactMechanism" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Billing Phone Extension </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="billingpager" type="ContactMechanism" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Billing Address Pager used by Reggie</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="empistatus" type="Code" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>NextGate field - Active and In-active patient based on merge concept in EMPI - Next Gate</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="PersonalRelationship" type="PersonalRelationship" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="Citizenship" type="Citizenship" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="ContactParty" type="ContactParty" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="OccupationalHistoryObservation" type="OccupationalHistoryObservation" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="PersonPension" type="PersonPension" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="USUniformedServicesPerson" type="USUniformedServicesPerson" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="LanguageCapability" type="LanguageCapability" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="AdvanceDirective" type="AdvanceDirective" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="UsMailingAddress" type="UsMailingAddress"/>
+    <xs:complexType name="UsMailingAddress">
+        <xs:annotation>
+            <xs:documentation>UsMailingAddress</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="Address">
+                <xs:sequence>
+                    <xs:element name="usastate" type="Code" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="Address" type="Address"/>
+    <xs:complexType name="Address">
+        <xs:annotation>
+            <xs:documentation>Address</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="addresstype" type="AddressType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Address Type</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="effectivedaterange" type="TimeInterval" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Time interval </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="line1" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="line2" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="line3" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="line4" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Line 4 Address</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="city" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="county" type="Code" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="postalcode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="state" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>State </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="country" type="Code" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="NonUsMailingAddress" type="NonUsMailingAddress"/>
+    <xs:complexType name="NonUsMailingAddress">
+        <xs:annotation>
+            <xs:documentation>Non US Mailing Address</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="Address">
+                <xs:sequence>
+                    <xs:element name="jurisdiction" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="territory" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Terrority </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:simpleType name="ContactMechanismType">
+        <xs:annotation>
+            <xs:documentation>Contact Mechanism Type</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="workphone"/>
+            <xs:enumeration value="homephone"/>
+            <xs:enumeration value="cellphone"/>
+            <xs:enumeration value="homefax"/>
+            <xs:enumeration value="officefax"/>
+            <xs:enumeration value="personalemail"/>
+            <xs:enumeration value="officalemail"/>
+            <xs:enumeration value="pager"/>
+            <xs:enumeration value="website"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="MonetaryAmount" type="MonetaryAmount"/>
+    <xs:complexType name="MonetaryAmount">
+        <xs:annotation>
+            <xs:documentation>"A quantity expressing an amount of money in some currency. While the monetary amount is a single kind of quantity (money) the exchange rates between the different units are variable. This is the principle difference between PQ and MO, and the reason why currency units are not physical units." - HL7 V3</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="currency" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The currency unit as defined in ISO 4217" - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="value" type="Real" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The magnitude of the Monetary Amount in terms of currency" - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ContactParty" type="ContactParty"/>
+    <xs:complexType name="ContactParty">
+        <xs:annotation>
+            <xs:documentation>Contact Party </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="contactcategory" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Contact Category Code - Indicates the circumstances under which this person is the contact party for the person identified in the owning Person class.
+                        "Indicates the specific relationship role.... This field specifies the role that the next of kin/associated parties plays with regard to the patient." - HL7 Version 2.8, NK1-7. See HL7 Table 131 for suggested values.
+
+                        &lt;/tr&gt;</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="contactreason" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"Identifies how the contact should be used (e.g., contact employer if patient is unable to work)." - HL7 Version 2.8, NK1-29.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="isprimarycontact" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Indicates whether this person is the primary one to contact. Added for MyHealtheVet.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="effectivedaterange" type="TimeInterval" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The date range during which this person is a contact party for the patient.
+                        "The start date of the contact role." - HL7 Version 2.8, NK1-8.
+                        "The end date of the contact role." - HL7 Version 2.8, NK1-9.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="enddate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Person" type="Person" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Real" type="Real"/>
+    <xs:complexType name="Real">
+        <xs:annotation>
+            <xs:documentation>Real </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="literal" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PointInTime" type="PointInTime"/>
+    <xs:complexType name="PointInTime">
+        <xs:annotation>
+            <xs:documentation>A data type containing date/time information. This data type is a placeholder, as various platforms have differing built-in date/time datatypes. It is anticipated that this data type will be replaced by a different data type when transforming to a particular implementation platform.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="literal" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"TS literals are simple calendar expressions... [which] conform to the constrained ISO 8601... western calendar expressions begin with the 4-digit year; followed by the 2-digit month of the year; followed by the 2-digit day of the month; followed by the 2-digit hour of the day (beginning with zero); and so forth. For example, '200004010315' is a valid expression for April 1, 2000, 3:15 am. A calendar expression can be of variable precision, omitting parts from the right. For example, '20000401' is precise only to the day of the month. The least defined calendar period (i.e. the second) may be written as a REAL, with the number of integer digits specified, followed by the decimal point and any number of fractional digits. For example, '20000401031520.34' means April 1, 2000, 3:15 and 20.34 seconds. When other calendars are used in the future, a prefix 'GREG:' can be placed before the western (Gregorian) calendar expression to disambiguate from other calendars. Each calendar shall have its own prefix. However, the western calendar is the default if no prefix is present. In the modern Gregorian calendar (and all calendars where time of day is based on UTC), the calendar expression may contain a time zone suffix. The time zone suffix begins with a plus (+) or minus (-) followed by digits for the hour and, for non UTC times, minute cycles. UTC is designated as offset '+00' or '-00'; the ISO 8601 and ISO 8824 suffix 'Z' for UTC is not permitted." - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Citizenship" type="Citizenship"/>
+    <xs:complexType name="Citizenship">
+        <xs:annotation>
+            <xs:documentation>Citizenship - Citizenship is a legal status in a political institution such as a city or a state. The relationship between a citizen and the institution that confers this status is formal, and in contemporary liberal-democratic models includes both a set of rights that the citizen possesses by virtue of this relationship, and a set of obligations or duties that they owe to that institution and their fellow citizens in return.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="effectivedaterange" type="TimeInterval" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The time period during which the person is or was a citizen of the associated Nation.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Country" type="Country" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="NullableBoolean" type="NullableBoolean"/>
+    <xs:complexType name="NullableBoolean">
+        <xs:annotation>
+            <xs:documentation>This data type represents a boolean value which may be unknown. In other words, this data type can represent Yes, No, and Unknown; unlike a traditional boolean which can only represent True and False. For this logical model, this class has been modeled in the HL7 V3 style, which has the advantage of being able to account for different kinds of "unknowns", but has the disadvantage of having two fields, one of which must always be populated while the other must always be empty. Implementers may choose to implement this class using a single field instead.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="nullflavor" type="NullFlavors" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This property indicates why the value property is empty. It uses the NullFlavor enumeration. This property must be valued when the value property is empty, and must be empty when the value property is valued.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="value" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This property contains either a True or a False (or Yes or No). If "unknown" is needed, this property will be empty, and the nullFlavor property will be valued.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="IntegerRatio" type="IntegerRatio"/>
+    <xs:complexType name="IntegerRatio">
+        <xs:annotation>
+            <xs:documentation>This data type represents an Ratio, where the Numerator and Denominator are Integers. A Ratio is "a quantity constructed as the quotient of a numerator quantity divided by a denominator quantity. Common factors in the numerator and denominator are not automatically cancelled out. The RTO data type supports titers (e.g., "1:128") and other quantities produced by laboratories that truly represent ratios." - HL7 V3 "Integer numbers are precise numbers that are results of counting and enumerating. Integer numbers are discrete, the set of integers is infinite but countable. No arbitrary limit is imposed on the range of integer numbers." - HL7 V3</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="denominator" type="xs:int" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The quantity that devides the numerator in the ratio. The default is the integer number 1 (one). The denominator SHALL not be zero." - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="numerator" type="xs:int" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The quantity that is being divided in the ratio. The default is the integer number 1 (one)." - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="OrganizationName" type="OrganizationName"/>
+    <xs:complexType name="OrganizationName">
+        <xs:annotation>
+            <xs:documentation>"A word or term by which a person or thing is commonly and distinctively known." - Collins English Dictionary. This data type represents a organization's name.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"A word or term by which a person or thing is commonly and distinctively known." - Collins English Dictionary. This property represents a organization's name. Note that the data type is simply a string, unlike HL7 V3's complex collection of name parts.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Parties" type="Parties"/>
+    <xs:complexType name="Parties">
+        <xs:annotation>
+            <xs:documentation>Biological Entity - Person  - 'A physical thing, group of physical things or an organization capable of participating in Acts while in a role. An entity is a physical object that has, had or will have existence. The only exception to this is Organization, which while not having a physical presence, fulfills the other characteristics of an Entity. Entity stipulates the thing itself, not the Roles it may play: the Role of Patient, e.g., is played by the Person Entity.' HL7 RIM.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="identifier" type="ID" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>An identifier that uniquely identifies the individual. Note that this property can hold more than one value, and that the datatype contains an indicator of the kind of identifier that is assigned. For example, a Person record might contain an SSN, a driver's license number, and a locally-assigned id. These identifiers, while different, all identify the same individual. However, the FHIM calls out certain Ids that are specifically required. For example, the Person class explictly contains an SSN property. In the case when an Id is explicitly modeled, that Id type should not be included in this property. Therefore, an SSN should not be instantiated in this property, because a separate SSN field exists for that purpose.
+                        "This field contains the list of identifiers (one or more) used by the healthcare facility to uniquely identify a patient (e.g., medical record number, billing number, birth registry, national unique individual identifier, etc.)." - HL7 Version 2.8, PID-3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="PartiesAlternateId" type="PartiesAlternateId" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="OccupationalHistoryObservation" type="OccupationalHistoryObservation"/>
+    <xs:complexType name="OccupationalHistoryObservation">
+        <xs:annotation>
+            <xs:documentation>This class records observations regarding the usual occupation of a person, and what industries the person has worked in. This information is needed primarily for occupation safety and workplace-related illness tracking purposes, but it is often asked for other non-healthcare related reasons, such as insurance.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="currentindustryclassification" type="CodeWithOriginalText" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>A categorization of the type of activity in which an organization is engaged.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="currentoccupation" type="CodeWithOriginalText" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"A value that qualifies the classification of 'kind-of-work' based upon a recognized industry or jurisdictional standard." - HL7 Version 3 RIM.
+                        "The employer's job code and the employee classification used for the next of kin/associated parties at their place of employment. However, if the contact role is the patient's employer, this field contains the job code/class of the patient at their place of employment." - HL7 Version 2.8, NK1-11.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="dateobserved" type="PointInTime" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="usualindustry" type="CodeWithOriginalText" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="usualoccupation" type="CodeWithOriginalText" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The kind of work in which the Person has been engaged the most amount of time.
+
+                        "A value that qualifies the classification of 'kind-of-work' based upon a recognized industry or jurisdictional standard." - HL7 Version 3 RIM.
+
+                        Note that the definition of this property needs to be refined.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="yearsincurrentoccupation" type="Real" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The length of time in years in which the Person has been engaged in the occupation in which he or she is currently engaged. Added for Public Health Reporting Initiative, 10/12/2012.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="yearsinusualoccupation" type="Real" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The length of time in years in which the Person has been engaged in the occupation in which he or she has longest held. Added for Public Health Reporting Initiative, 10/12/2012.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="IntegerInterval" type="IntegerInterval"/>
+    <xs:complexType name="IntegerInterval">
+        <xs:annotation>
+            <xs:documentation>This data type represents an Interval, where the Low and High Limits are Integers. An Interval is a "set of consecutive values of an ordered base data type." - HL7 V3 "Integer numbers are precise numbers that are results of counting and enumerating. Integer numbers are discrete, the set of integers is infinite but countable. No arbitrary limit is imposed on the range of integer numbers." - HL7 V3</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="low" type="xs:int" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The high limit of the interval. The high limit SHALL NOT be negative infinity, and SHALL be higher than the low limit if one exists." - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="high" type="xs:int" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The low limit of the interval. The low limit SHALL NOT be positive infinity." - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PersonalRelationship" type="PersonalRelationship"/>
+    <xs:complexType name="PersonalRelationship">
+        <xs:annotation>
+            <xs:documentation>Personal Relationship - This Role identifies a Person to whom the originating Person is related in some way
+
+                Patient - Subscriber
+                Patient - Parent ( Father/Mother) </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="relationshipcategorycode" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Indicates how the target Person is related to the person identified in the owning Person class. Examples include Spouse, Child, Parent, Legal Guardian, etc.
+                        "The actual personal relationship that the next of kin/associated party has to the patient." - HL7 Version 2.8, NK1-3. See HL7 Table 63 for suggested values.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="effectivedaterange" type="TimeInterval" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The date range during which this person is a contact party for the patient.
+                        "The start date of the contact role." - HL7 Version 2.8, NK1-8.
+                        "The end date of the contact role." - HL7 Version 2.8, NK1-9.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Person" type="Person" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="HealthcareProvider" type="HealthcareProvider"/>
+    <xs:complexType name="HealthcareProvider">
+        <xs:annotation>
+            <xs:documentation>Healthcare Provider - A health care provider is an individual or an institution that provides preventive, curative, promotional or rehabilitative health care services in a systematic way to individuals, families or communities.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="digitalcertificateid" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"Serial number from the public digital certificate" - ONC S&amp;I Clinical Element Data Dictionary (CEDD), March 2012.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="digitalcertificatedistinguishedname" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"Distinguished Name field from digital certificate" - ONC S&amp;I Clinical Element Data Dictionary (CEDD), March 2012.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="id" type="ID" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Uniquely identifies the practitioner. This property should not contain the Tax Id or the National Provider Id, as these types of Ids are called out separately.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="nationalproviderid" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>An identifier that uniquely identifies all persons and organizations who perform medical services within the United States. This identifier is mandated by HIPAA and is maintained by CMS.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="providercategory" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Contains a categorization for the practitioner.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="providerrole" type="Code" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="publicdigitalcertificate" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"A base 64 encoded representation of the public digital certificate" - ONC S&amp;I Clinical Element Data Dictionary (CEDD), March 2012.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="taxid" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This contains the tax ID for the practitioner, used for billing purposes.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="address" type="Address" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The person's office address. First choice for business related contacts during business hours.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="email" type="ContactMechanism" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The email address that a person uses while at their place of business. First choice for business related contacts during business hours.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="phone" type="ContactMechanism" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The phone number for a person at their office location. First choice for business related contacts during business hours. </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="facsimile" type="ContactMechanism" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The phone number for a person at their office location at which to send a facsimile (fax).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PhysicalQualtity" type="PhysicalQualtity"/>
+    <xs:complexType name="PhysicalQualtity">
+        <xs:annotation>
+            <xs:documentation>"A dimensioned quantity expressing the result of measuring" - HL7 V3</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="unit" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The unit of measure specified in the Unified Code for Units of Measure (UCUM). The default unit is 1." - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="value" type="Real" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The magnitude of the quantity measured in terms of the unit" - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PartiesAlternateId" type="PartiesAlternateId"/>
+    <xs:complexType name="PartiesAlternateId">
+        <xs:annotation>
+            <xs:documentation>Parties Alternate Ids </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="alternateidsrole" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Alternate Id's for Parties </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="alternateid" type="ID" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Actual Identifier </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Country" type="Country"/>
+    <xs:complexType name="Country">
+        <xs:annotation>
+            <xs:documentation>Country - "A community of people composed of one or more nationalities and possessing a more or less defined territory and government." â€“ Merriam-Webster. An organization created to govern a country, which has the power to grant citizenship to its people.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="countrycode" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Identifies the country.
+                        "Contains the information related to a person's country citizenship. For country citizenship HL7 recommends using ISO table 3166...." - HL7 Version 2.8, PID-26.
+                        "Identif(ies) the next of kin/associated party's citizenship." - HL7 Version 2.8, NK1-19.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="AddressType">
+        <xs:annotation>
+            <xs:documentation>Address Type</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="postal"/>
+            <xs:enumeration value="primaryhome"/>
+            <xs:enumeration value="workplace"/>
+            <xs:enumeration value="vacationhome"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="TimeQuantity" type="TimeQuantity"/>
+    <xs:complexType name="TimeQuantity">
+        <xs:annotation>
+            <xs:documentation>This class represents an amount of time, such as 10 minutes, 3.2 seconds, etc. This class is structurally identical to a Physical Quantity, although the units of measure are by definition time units (e.g., hours), rather than physical units (e.g., kilograms).</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="unit" type="Code" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The unit of measure specified in the Unified Code for Units of Measure (UCUM)." - HL7 V3 The units of measure used by this class are limited to those measuring time (e.g., minutes, hours, years, etc.)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="value" type="Real" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>"The magnitude of the quantity measured in terms of the unit" - HL7 V3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="NullableCode" type="NullableCode"/>
+    <xs:complexType name="NullableCode">
+        <xs:annotation>
+            <xs:documentation>A specialization of Code which additionally contains a property to hold a reason why the value of the code is empty.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="CodeWithOriginalText">
+                <xs:sequence>
+                    <xs:element name="nullflavor" type="NullFlavors" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>This property indicates why the value property is empty. It uses the NullFlavor enumeration. This property must be valued when the value property is empty, and must be empty when the value property is valued.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

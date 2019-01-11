@@ -1,0 +1,1822 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://webservice.index.mdm.sun.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservice.index.mdm.sun.com/">
+
+<xs:element name="CodeLookupException" type="tns:CodeLookupException"/>
+
+<xs:element name="PageException" type="tns:PageException"/>
+
+<xs:element name="ProcessingException" type="tns:ProcessingException"/>
+
+<xs:element name="UserException" type="tns:UserException"/>
+
+<xs:element name="activateEnterpriseRecord" type="tns:activateEnterpriseRecord"/>
+
+<xs:element name="activateEnterpriseRecordResponse" type="tns:activateEnterpriseRecordResponse"/>
+
+<xs:element name="activateSystemRecord" type="tns:activateSystemRecord"/>
+
+<xs:element name="activateSystemRecordResponse" type="tns:activateSystemRecordResponse"/>
+
+<xs:element name="addOrUpdateSystemRecord" type="tns:addOrUpdateSystemRecord"/>
+
+<xs:element name="addOrUpdateSystemRecordResponse" type="tns:addOrUpdateSystemRecordResponse"/>
+
+<xs:element name="addSystemRecord" type="tns:addSystemRecord"/>
+
+<xs:element name="addSystemRecordResponse" type="tns:addSystemRecordResponse"/>
+
+<xs:element name="assignRefObjectNode" type="tns:assignRefObjectNode"/>
+
+<xs:element name="assignRefObjectNodeResponse" type="tns:assignRefObjectNodeResponse"/>
+
+<xs:element name="assignRefObjectNodes" type="tns:assignRefObjectNodes"/>
+
+<xs:element name="assignRefObjectNodesResponse" type="tns:assignRefObjectNodesResponse"/>
+
+<xs:element name="checkForOverlay" type="tns:checkForOverlay"/>
+
+<xs:element name="checkForOverlayResponse" type="tns:checkForOverlayResponse"/>
+
+<xs:element name="compareRecords" type="tns:compareRecords"/>
+
+<xs:element name="compareRecordsResponse" type="tns:compareRecordsResponse"/>
+
+<xs:element name="deactivateEnterpriseRecord" type="tns:deactivateEnterpriseRecord"/>
+
+<xs:element name="deactivateEnterpriseRecordResponse" type="tns:deactivateEnterpriseRecordResponse"/>
+
+<xs:element name="deactivateSystemRecord" type="tns:deactivateSystemRecord"/>
+
+<xs:element name="deactivateSystemRecordResponse" type="tns:deactivateSystemRecordResponse"/>
+
+<xs:element name="executeCustomLogic" type="tns:executeCustomLogic"/>
+
+<xs:element name="executeCustomLogicResponse" type="tns:executeCustomLogicResponse"/>
+
+<xs:element name="executeMatch" type="tns:executeMatch"/>
+
+<xs:element name="executeMatchResponse" type="tns:executeMatchResponse"/>
+
+<xs:element name="executeMatchUpdate" type="tns:executeMatchUpdate"/>
+
+<xs:element name="executeMatchUpdateResponse" type="tns:executeMatchUpdateResponse"/>
+
+<xs:element name="getActiveEUID" type="tns:getActiveEUID"/>
+
+<xs:element name="getActiveEUIDResponse" type="tns:getActiveEUIDResponse"/>
+
+<xs:element name="getCodeDescription" type="tns:getCodeDescription"/>
+
+<xs:element name="getCodeDescriptionResponse" type="tns:getCodeDescriptionResponse"/>
+
+<xs:element name="getCodesByType" type="tns:getCodesByType"/>
+
+<xs:element name="getCodesByTypeResponse" type="tns:getCodesByTypeResponse"/>
+
+<xs:element name="getComparison" type="tns:getComparison"/>
+
+<xs:element name="getComparisonResponse" type="tns:getComparisonResponse"/>
+
+<xs:element name="getEUID" type="tns:getEUID"/>
+
+<xs:element name="getEUIDResponse" type="tns:getEUIDResponse"/>
+
+<xs:element name="getEUIDs" type="tns:getEUIDs"/>
+
+<xs:element name="getEUIDsResponse" type="tns:getEUIDsResponse"/>
+
+<xs:element name="getEnterpriseRecordByEUID" type="tns:getEnterpriseRecordByEUID"/>
+
+<xs:element name="getEnterpriseRecordByEUIDResponse" type="tns:getEnterpriseRecordByEUIDResponse"/>
+
+<xs:element name="getEnterpriseRecordByLID" type="tns:getEnterpriseRecordByLID"/>
+
+<xs:element name="getEnterpriseRecordByLIDResponse" type="tns:getEnterpriseRecordByLIDResponse"/>
+
+<xs:element name="getEnterpriseRecordStatus" type="tns:getEnterpriseRecordStatus"/>
+
+<xs:element name="getEnterpriseRecordStatusResponse" type="tns:getEnterpriseRecordStatusResponse"/>
+
+<xs:element name="getEnterpriseRecords" type="tns:getEnterpriseRecords"/>
+
+<xs:element name="getEnterpriseRecordsResponse" type="tns:getEnterpriseRecordsResponse"/>
+
+<xs:element name="getLIDs" type="tns:getLIDs"/>
+
+<xs:element name="getLIDsByStatus" type="tns:getLIDsByStatus"/>
+
+<xs:element name="getLIDsByStatusResponse" type="tns:getLIDsByStatusResponse"/>
+
+<xs:element name="getLIDsResponse" type="tns:getLIDsResponse"/>
+
+<xs:element name="getLastSysInfoLogEntry" type="tns:getLastSysInfoLogEntry"/>
+
+<xs:element name="getLastSysInfoLogEntryResponse" type="tns:getLastSysInfoLogEntryResponse"/>
+
+<xs:element name="getMergedEUIDs" type="tns:getMergedEUIDs"/>
+
+<xs:element name="getMergedEUIDsResponse" type="tns:getMergedEUIDsResponse"/>
+
+<xs:element name="getMultipleLIDs" type="tns:getMultipleLIDs"/>
+
+<xs:element name="getMultipleLIDsResponse" type="tns:getMultipleLIDsResponse"/>
+
+<xs:element name="getRevisionNumber" type="tns:getRevisionNumber"/>
+
+<xs:element name="getRevisionNumberResponse" type="tns:getRevisionNumberResponse"/>
+
+<xs:element name="getSBR" type="tns:getSBR"/>
+
+<xs:element name="getSBRHistory" type="tns:getSBRHistory"/>
+
+<xs:element name="getSBRHistoryResponse" type="tns:getSBRHistoryResponse"/>
+
+<xs:element name="getSBRResponse" type="tns:getSBRResponse"/>
+
+<xs:element name="getSBRs" type="tns:getSBRs"/>
+
+<xs:element name="getSBRsResponse" type="tns:getSBRsResponse"/>
+
+<xs:element name="getSystemRecord" type="tns:getSystemRecord"/>
+
+<xs:element name="getSystemRecordHistory" type="tns:getSystemRecordHistory"/>
+
+<xs:element name="getSystemRecordHistoryResponse" type="tns:getSystemRecordHistoryResponse"/>
+
+<xs:element name="getSystemRecordResponse" type="tns:getSystemRecordResponse"/>
+
+<xs:element name="getSystemRecordStatus" type="tns:getSystemRecordStatus"/>
+
+<xs:element name="getSystemRecordStatusResponse" type="tns:getSystemRecordStatusResponse"/>
+
+<xs:element name="getSystemRecordsByEUID" type="tns:getSystemRecordsByEUID"/>
+
+<xs:element name="getSystemRecordsByEUIDResponse" type="tns:getSystemRecordsByEUIDResponse"/>
+
+<xs:element name="getSystemRecordsByEUIDStatus" type="tns:getSystemRecordsByEUIDStatus"/>
+
+<xs:element name="getSystemRecordsByEUIDStatusResponse" type="tns:getSystemRecordsByEUIDStatusResponse"/>
+
+<xs:element name="lookupApplicationConfig" type="tns:lookupApplicationConfig"/>
+
+<xs:element name="lookupApplicationConfigResponse" type="tns:lookupApplicationConfigResponse"/>
+
+<xs:element name="lookupLIDBySUID" type="tns:lookupLIDBySUID"/>
+
+<xs:element name="lookupLIDBySUIDResponse" type="tns:lookupLIDBySUIDResponse"/>
+
+<xs:element name="lookupLIDs" type="tns:lookupLIDs"/>
+
+<xs:element name="lookupLIDsResponse" type="tns:lookupLIDsResponse"/>
+
+<xs:element name="lookupObjectDefinition" type="tns:lookupObjectDefinition"/>
+
+<xs:element name="lookupObjectDefinitionResponse" type="tns:lookupObjectDefinitionResponse"/>
+
+<xs:element name="lookupPotentialDuplicates" type="tns:lookupPotentialDuplicates"/>
+
+<xs:element name="lookupPotentialDuplicatesResponse" type="tns:lookupPotentialDuplicatesResponse"/>
+
+<xs:element name="lookupResource" type="tns:lookupResource"/>
+
+<xs:element name="lookupResourceResponse" type="tns:lookupResourceResponse"/>
+
+<xs:element name="lookupSystemDefinition" type="tns:lookupSystemDefinition"/>
+
+<xs:element name="lookupSystemDefinitionResponse" type="tns:lookupSystemDefinitionResponse"/>
+
+<xs:element name="lookupSystemDefinitions" type="tns:lookupSystemDefinitions"/>
+
+<xs:element name="lookupSystemDefinitionsResponse" type="tns:lookupSystemDefinitionsResponse"/>
+
+<xs:element name="lookupSystemRecordUIDs" type="tns:lookupSystemRecordUIDs"/>
+
+<xs:element name="lookupSystemRecordUIDsResponse" type="tns:lookupSystemRecordUIDsResponse"/>
+
+<xs:element name="lookupSystemUIDDefinitions" type="tns:lookupSystemUIDDefinitions"/>
+
+<xs:element name="lookupSystemUIDDefinitionsResponse" type="tns:lookupSystemUIDDefinitionsResponse"/>
+
+<xs:element name="mergeEnterpriseRecord" type="tns:mergeEnterpriseRecord"/>
+
+<xs:element name="mergeEnterpriseRecordResponse" type="tns:mergeEnterpriseRecordResponse"/>
+
+<xs:element name="mergeEnterpriseRecordWithImage" type="tns:mergeEnterpriseRecordWithImage"/>
+
+<xs:element name="mergeEnterpriseRecordWithImageResponse" type="tns:mergeEnterpriseRecordWithImageResponse"/>
+
+<xs:element name="mergeEnterpriseRecordWithOverwrites" type="tns:mergeEnterpriseRecordWithOverwrites"/>
+
+<xs:element name="mergeEnterpriseRecordWithOverwritesResponse" type="tns:mergeEnterpriseRecordWithOverwritesResponse"/>
+
+<xs:element name="mergeMultipleEnterpriseRecords" type="tns:mergeMultipleEnterpriseRecords"/>
+
+<xs:element name="mergeMultipleEnterpriseRecordsResponse" type="tns:mergeMultipleEnterpriseRecordsResponse"/>
+
+<xs:element name="mergeSystemRecord" type="tns:mergeSystemRecord"/>
+
+<xs:element name="mergeSystemRecordResponse" type="tns:mergeSystemRecordResponse"/>
+
+<xs:element name="mergeSystemRecordWithImage" type="tns:mergeSystemRecordWithImage"/>
+
+<xs:element name="mergeSystemRecordWithImageResponse" type="tns:mergeSystemRecordWithImageResponse"/>
+
+<xs:element name="recalculateMatch" type="tns:recalculateMatch"/>
+
+<xs:element name="recalculateMatchResponse" type="tns:recalculateMatchResponse"/>
+
+<xs:element name="resolvePotentialDuplicate" type="tns:resolvePotentialDuplicate"/>
+
+<xs:element name="resolvePotentialDuplicateResponse" type="tns:resolvePotentialDuplicateResponse"/>
+
+<xs:element name="search" type="tns:search"/>
+
+<xs:element name="searchResponse" type="tns:searchResponse"/>
+
+<xs:element name="splitSystemRecord" type="tns:splitSystemRecord"/>
+
+<xs:element name="splitSystemRecordResponse" type="tns:splitSystemRecordResponse"/>
+
+<xs:element name="transferSystemRecord" type="tns:transferSystemRecord"/>
+
+<xs:element name="transferSystemRecordResponse" type="tns:transferSystemRecordResponse"/>
+
+<xs:element name="transferSystemRecordUID" type="tns:transferSystemRecordUID"/>
+
+<xs:element name="transferSystemRecordUIDResponse" type="tns:transferSystemRecordUIDResponse"/>
+
+<xs:element name="undoAssumedMatch" type="tns:undoAssumedMatch"/>
+
+<xs:element name="undoAssumedMatchResponse" type="tns:undoAssumedMatchResponse"/>
+
+<xs:element name="undoSystemObjectUpdate" type="tns:undoSystemObjectUpdate"/>
+
+<xs:element name="undoSystemObjectUpdateResponse" type="tns:undoSystemObjectUpdateResponse"/>
+
+<xs:element name="unmergeEnterpriseRecord" type="tns:unmergeEnterpriseRecord"/>
+
+<xs:element name="unmergeEnterpriseRecordResponse" type="tns:unmergeEnterpriseRecordResponse"/>
+
+<xs:element name="unmergeSystemRecord" type="tns:unmergeSystemRecord"/>
+
+<xs:element name="unmergeSystemRecordResponse" type="tns:unmergeSystemRecordResponse"/>
+
+<xs:element name="unresolvePotentialDuplicate" type="tns:unresolvePotentialDuplicate"/>
+
+<xs:element name="unresolvePotentialDuplicateResponse" type="tns:unresolvePotentialDuplicateResponse"/>
+
+<xs:element name="updateEnterpriseRecord" type="tns:updateEnterpriseRecord"/>
+
+<xs:element name="updateEnterpriseRecordResponse" type="tns:updateEnterpriseRecordResponse"/>
+
+<xs:element name="updateSystemRecord" type="tns:updateSystemRecord"/>
+
+<xs:element name="updateSystemRecordResponse" type="tns:updateSystemRecordResponse"/>
+
+<xs:complexType name="mergeEnterpriseRecordWithImage">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="fromEUID" type="xs:string" minOccurs="0"/>
+<xs:element name="destinationEO" type="tns:enterprisePerson" minOccurs="0"/>
+<xs:element name="calculateOnly" type="xs:boolean"/>
+<xs:element name="setSourceSystemStatusToMerged" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="callerInfo">
+<xs:sequence>
+<xs:element name="application" type="xs:string" minOccurs="0"/>
+<xs:element name="applicationFunction" type="xs:string" minOccurs="0"/>
+<xs:element name="authPassword" type="xs:string" minOccurs="0"/>
+<xs:element name="authUser" type="xs:string" minOccurs="0"/>
+<xs:element name="executionCycleId" type="xs:string" minOccurs="0"/>
+<xs:element name="system" type="xs:string" minOccurs="0"/>
+<xs:element name="user" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="enterprisePerson">
+<xs:sequence>
+<xs:element name="EUID" type="xs:string" minOccurs="0"/>
+<xs:element name="SBRPerson" type="tns:sbrPerson" minOccurs="0"/>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+<xs:element name="systemPerson" type="tns:systemPerson" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sbrPerson">
+<xs:sequence>
+<xs:element name="createDateTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="createFunction" type="xs:string" minOccurs="0"/>
+<xs:element name="createSystem" type="xs:string" minOccurs="0"/>
+<xs:element name="createUser" type="xs:string" minOccurs="0"/>
+<xs:element name="person" type="tns:personBean" minOccurs="0"/>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+<xs:element name="updateDateTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="updateFunction" type="xs:string" minOccurs="0"/>
+<xs:element name="updateSystem" type="xs:string" minOccurs="0"/>
+<xs:element name="updateUser" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="personBean" final="extension restriction">
+<xs:sequence>
+<xs:element name="address" type="tns:addressBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="addressHistory" type="tns:addressHistoryBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="alias" type="tns:aliasBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="authFlag" type="xs:string" minOccurs="0"/>
+<xs:element name="auxId" type="tns:auxIdBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="birthOrder" type="xs:string" minOccurs="0"/>
+<xs:element name="citizenship" type="xs:string" minOccurs="0"/>
+<xs:element name="class1" type="xs:string" minOccurs="0"/>
+<xs:element name="class2" type="xs:string" minOccurs="0"/>
+<xs:element name="class3" type="xs:string" minOccurs="0"/>
+<xs:element name="class4" type="xs:string" minOccurs="0"/>
+<xs:element name="class5" type="xs:string" minOccurs="0"/>
+<xs:element name="comment" type="tns:commentBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="contact" type="tns:contactBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="DOB" type="xs:string" minOccurs="0"/>
+<xs:element name="date1" type="xs:string" minOccurs="0"/>
+<xs:element name="date2" type="xs:string" minOccurs="0"/>
+<xs:element name="date3" type="xs:string" minOccurs="0"/>
+<xs:element name="date4" type="xs:string" minOccurs="0"/>
+<xs:element name="date5" type="xs:string" minOccurs="0"/>
+<xs:element name="death" type="xs:string" minOccurs="0"/>
+<xs:element name="deathCertificate" type="xs:string" minOccurs="0"/>
+<xs:element name="degree" type="xs:string" minOccurs="0"/>
+<xs:element name="districtOfResidence" type="xs:string" minOccurs="0"/>
+<xs:element name="dod" type="xs:string" minOccurs="0"/>
+<xs:element name="driversLicense" type="xs:string" minOccurs="0"/>
+<xs:element name="driversLicenseExp" type="xs:string" minOccurs="0"/>
+<xs:element name="driversLicenseSt" type="xs:string" minOccurs="0"/>
+<xs:element name="dummyDate" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="tns:emailBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ethnic" type="xs:string" minOccurs="0"/>
+<xs:element name="fatherName" type="xs:string" minOccurs="0"/>
+<xs:element name="fatherPhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+<xs:element name="fnamePhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="gender" type="xs:string" minOccurs="0"/>
+<xs:element name="images" type="tns:imagesBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="language" type="xs:string" minOccurs="0"/>
+<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+<xs:element name="lastServiceDate" type="xs:string" minOccurs="0"/>
+<xs:element name="lgaCode" type="xs:string" minOccurs="0"/>
+<xs:element name="lnamePhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="MStatus" type="xs:string" minOccurs="0"/>
+<xs:element name="maiden" type="xs:string" minOccurs="0"/>
+<xs:element name="maidenPhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="middleName" type="xs:string" minOccurs="0"/>
+<xs:element name="militaryBranch" type="xs:string" minOccurs="0"/>
+<xs:element name="militaryRank" type="xs:string" minOccurs="0"/>
+<xs:element name="militaryStatus" type="xs:string" minOccurs="0"/>
+<xs:element name="mnamePhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="motherMN" type="xs:string" minOccurs="0"/>
+<xs:element name="motherMNPhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="motherName" type="xs:string" minOccurs="0"/>
+<xs:element name="motherPhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="multipleBirth" type="xs:string" minOccurs="0"/>
+<xs:element name="nationality" type="xs:string" minOccurs="0"/>
+<xs:element name="pensionExpDate" type="xs:string" minOccurs="0"/>
+<xs:element name="pensionNo" type="xs:string" minOccurs="0"/>
+<xs:element name="personCatCode" type="xs:string" minOccurs="0"/>
+<xs:element name="personId" type="xs:string" minOccurs="0"/>
+<xs:element name="phone" type="tns:phoneBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="phoneHistory" type="tns:phoneHistoryBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="picture" type="xs:string" minOccurs="0"/>
+<xs:element name="pobCity" type="xs:string" minOccurs="0"/>
+<xs:element name="pobCountry" type="xs:string" minOccurs="0"/>
+<xs:element name="pobState" type="xs:string" minOccurs="0"/>
+<xs:element name="prefix" type="xs:string" minOccurs="0"/>
+<xs:element name="race" type="xs:string" minOccurs="0"/>
+<xs:element name="races" type="tns:racesBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="religion" type="xs:string" minOccurs="0"/>
+<xs:element name="repatriationNo" type="xs:string" minOccurs="0"/>
+<xs:element name="SSN" type="xs:string" minOccurs="0"/>
+<xs:element name="SSN4" type="xs:string" minOccurs="0"/>
+<xs:element name="spouseName" type="xs:string" minOccurs="0"/>
+<xs:element name="spousePhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="stdFirstName" type="xs:string" minOccurs="0"/>
+<xs:element name="stdLastName" type="xs:string" minOccurs="0"/>
+<xs:element name="stdMiddleName" type="xs:string" minOccurs="0"/>
+<xs:element name="string1" type="xs:string" minOccurs="0"/>
+<xs:element name="string10" type="xs:string" minOccurs="0"/>
+<xs:element name="string2" type="xs:string" minOccurs="0"/>
+<xs:element name="string3" type="xs:string" minOccurs="0"/>
+<xs:element name="string4" type="xs:string" minOccurs="0"/>
+<xs:element name="string5" type="xs:string" minOccurs="0"/>
+<xs:element name="string6" type="xs:string" minOccurs="0"/>
+<xs:element name="string7" type="xs:string" minOccurs="0"/>
+<xs:element name="string8" type="xs:string" minOccurs="0"/>
+<xs:element name="string9" type="xs:string" minOccurs="0"/>
+<xs:element name="suffix" type="xs:string" minOccurs="0"/>
+<xs:element name="title" type="xs:string" minOccurs="0"/>
+<xs:element name="VIPFlag" type="xs:string" minOccurs="0"/>
+<xs:element name="vetStatus" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addressBean" final="extension restriction">
+<xs:sequence>
+<xs:element name="addressId" type="xs:string" minOccurs="0"/>
+<xs:element name="addressLine1" type="xs:string" minOccurs="0"/>
+<xs:element name="addressLine2" type="xs:string" minOccurs="0"/>
+<xs:element name="addressLine3" type="xs:string" minOccurs="0"/>
+<xs:element name="addressLine4" type="xs:string" minOccurs="0"/>
+<xs:element name="addressType" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+<xs:element name="county" type="xs:string" minOccurs="0"/>
+<xs:element name="houseNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="latitude" type="xs:string" minOccurs="0"/>
+<xs:element name="longitude" type="xs:string" minOccurs="0"/>
+<xs:element name="postalCode" type="xs:string" minOccurs="0"/>
+<xs:element name="postalCodeExt" type="xs:string" minOccurs="0"/>
+<xs:element name="stateCode" type="xs:string" minOccurs="0"/>
+<xs:element name="streetDir" type="xs:string" minOccurs="0"/>
+<xs:element name="streetName" type="xs:string" minOccurs="0"/>
+<xs:element name="streetNamePhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="streetType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addressHistoryBean" final="extension restriction">
+<xs:sequence>
+<xs:element name="addressHistoryId" type="xs:string" minOccurs="0"/>
+<xs:element name="addressIndex" type="xs:string" minOccurs="0"/>
+<xs:element name="addressLine1" type="xs:string" minOccurs="0"/>
+<xs:element name="addressLine2" type="xs:string" minOccurs="0"/>
+<xs:element name="addressLine3" type="xs:string" minOccurs="0"/>
+<xs:element name="addressLine4" type="xs:string" minOccurs="0"/>
+<xs:element name="addressType" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+<xs:element name="county" type="xs:string" minOccurs="0"/>
+<xs:element name="houseNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="latitude" type="xs:string" minOccurs="0"/>
+<xs:element name="longitude" type="xs:string" minOccurs="0"/>
+<xs:element name="postalCode" type="xs:string" minOccurs="0"/>
+<xs:element name="postalCodeExt" type="xs:string" minOccurs="0"/>
+<xs:element name="stateCode" type="xs:string" minOccurs="0"/>
+<xs:element name="streetDir" type="xs:string" minOccurs="0"/>
+<xs:element name="streetName" type="xs:string" minOccurs="0"/>
+<xs:element name="streetNamePhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="streetType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="aliasBean" final="extension restriction">
+<xs:sequence>
+<xs:element name="aliasId" type="xs:string" minOccurs="0"/>
+<xs:element name="aliasType" type="xs:string" minOccurs="0"/>
+<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+<xs:element name="fnamePhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+<xs:element name="lnamePhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="middleName" type="xs:string" minOccurs="0"/>
+<xs:element name="mnamePhoneticCode" type="xs:string" minOccurs="0"/>
+<xs:element name="stdFirstName" type="xs:string" minOccurs="0"/>
+<xs:element name="stdLastName" type="xs:string" minOccurs="0"/>
+<xs:element name="stdMiddleName" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="auxIdBean" final="extension restriction">
+<xs:sequence>
+<xs:element name="assigningAuthorityNamespace" type="xs:string" minOccurs="0"/>
+<xs:element name="assigningAuthorityUID" type="xs:string" minOccurs="0"/>
+<xs:element name="assigningAuthorityUIDType" type="xs:string" minOccurs="0"/>
+<xs:element name="auxIdDef" type="xs:string" minOccurs="0"/>
+<xs:element name="auxIdId" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="commentBean" final="extension restriction">
+<xs:sequence>
+<xs:element name="commentCode" type="xs:string" minOccurs="0"/>
+<xs:element name="commentId" type="xs:string" minOccurs="0"/>
+<xs:element name="commentText" type="xs:string" minOccurs="0"/>
+<xs:element name="enterDate" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="contactBean" final="extension restriction">
+<xs:sequence>
+<xs:element name="contactFirstName" type="xs:string" minOccurs="0"/>
+<xs:element name="contactHomePhone" type="xs:string" minOccurs="0"/>
+<xs:element name="contactId" type="xs:string" minOccurs="0"/>
+<xs:element name="contactLastName" type="xs:string" minOccurs="0"/>
+<xs:element name="contactMiddleName" type="xs:string" minOccurs="0"/>
+<xs:element name="contactName" type="xs:string" minOccurs="0"/>
+<xs:element name="contactNameDegree" type="xs:string" minOccurs="0"/>
+<xs:element name="contactNamePrefix" type="xs:string" minOccurs="0"/>
+<xs:element name="contactNameSuffix" type="xs:string" minOccurs="0"/>
+<xs:element name="contactRel" type="xs:string" minOccurs="0"/>
+<xs:element name="contactRole" type="xs:string" minOccurs="0"/>
+<xs:element name="contactWorkPhone" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="emailBean" final="extension restriction">
+<xs:sequence>
+<xs:element name="emailAddress" type="xs:string" minOccurs="0"/>
+<xs:element name="emailId" type="xs:string" minOccurs="0"/>
+<xs:element name="emailType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="imagesBean" final="extension restriction">
+<xs:sequence>
+<xs:element name="image" type="xs:string" minOccurs="0"/>
+<xs:element name="imageAddDate" type="xs:string" minOccurs="0"/>
+<xs:element name="imageDescription" type="xs:string" minOccurs="0"/>
+<xs:element name="imageName" type="xs:string" minOccurs="0"/>
+<xs:element name="imageType" type="xs:string" minOccurs="0"/>
+<xs:element name="imageUpdateDate" type="xs:string" minOccurs="0"/>
+<xs:element name="imagesId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="phoneBean" final="extension restriction">
+<xs:sequence>
+<xs:element name="phone" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneExt" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneId" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="phoneHistoryBean" final="extension restriction">
+<xs:sequence>
+<xs:element name="phone" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneExt" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneHistoryId" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneIndex" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="racesBean" final="extension restriction">
+<xs:sequence>
+<xs:element name="code" type="xs:string" minOccurs="0"/>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="racesId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="systemPerson">
+<xs:sequence>
+<xs:element name="createDateTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="createFunction" type="xs:string" minOccurs="0"/>
+<xs:element name="createUser" type="xs:string" minOccurs="0"/>
+<xs:element name="localId" type="xs:string" minOccurs="0"/>
+<xs:element name="person" type="tns:personBean" minOccurs="0"/>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="systemCodeDescription" type="xs:string" minOccurs="0"/>
+<xs:element name="uniqueId" type="tns:systemObjectUIDBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="updateDateTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="updateFunction" type="xs:string" minOccurs="0"/>
+<xs:element name="updateUser" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="systemObjectUIDBean">
+<xs:sequence>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+<xs:element name="type" type="xs:string" minOccurs="0"/>
+<xs:element name="UID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mergeEnterpriseRecordWithImageResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:mergePersonResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mergePersonResult">
+<xs:sequence>
+<xs:element name="destinationEO" type="tns:destinationEO" minOccurs="0"/>
+<xs:element name="sourceEO" type="tns:sourceEO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="destinationEO">
+<xs:sequence>
+<xs:element name="enterprisePerson" type="tns:enterprisePerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sourceEO">
+<xs:sequence>
+<xs:element name="enterprisePerson" type="tns:enterprisePerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ProcessingException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="UserException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="executeMatchUpdate">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="sysObjBean" type="tns:systemPerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="executeMatchUpdateResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matchColResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="matchColResult">
+<xs:sequence>
+<xs:element name="EUID" type="xs:string" minOccurs="0"/>
+<xs:element name="matchFieldChanged" type="xs:boolean"/>
+<xs:element name="overlayDetected" type="xs:boolean"/>
+<xs:element name="potentialDuplicates" type="tns:potentialDuplicateRecordArray" minOccurs="0"/>
+<xs:element name="resultCode" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="potentialDuplicateRecordArray">
+<xs:sequence>
+<xs:element name="potentialDuplicate" type="tns:potentialDuplicateRecord" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="potentialDuplicateRecord">
+<xs:sequence>
+<xs:element name="EUID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCodeDescription">
+<xs:sequence>
+<xs:element name="type" type="xs:string" minOccurs="0"/>
+<xs:element name="code" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCodeDescriptionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CodeLookupException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupApplicationConfig">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="lookupApplicationConfigResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:applicationConfigEntry" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="applicationConfigEntry">
+<xs:sequence/>
+<xs:attribute name="propertyName" type="xs:string"/>
+<xs:attribute name="propertyValue" type="xs:string"/>
+</xs:complexType>
+
+<xs:complexType name="getEnterpriseRecordByEUID">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+<xs:element name="allowMergedEuid" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEnterpriseRecordByEUIDResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:enterprisePerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unmergeEnterpriseRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+<xs:element name="calculateOnly" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unmergeEnterpriseRecordResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:mergePersonResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="activateSystemRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="localid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="activateSystemRecordResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getMergedEUIDs">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMergedEUIDsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupSystemDefinition">
+<xs:sequence>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupSystemDefinitionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemDefinition" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="systemDefinition">
+<xs:sequence>
+<xs:element name="allowSameSystemMatch" type="xs:boolean" minOccurs="0"/>
+<xs:element name="createDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="duplicateThreshold" type="xs:float" minOccurs="0"/>
+<xs:element name="format" type="xs:string" minOccurs="0"/>
+<xs:element name="idLength" type="xs:int"/>
+<xs:element name="inputMask" type="xs:string" minOccurs="0"/>
+<xs:element name="matchThreshold" type="xs:float" minOccurs="0"/>
+<xs:element name="properties">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="key" minOccurs="0" type="xs:string"/>
+<xs:element name="value" minOccurs="0" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="requireOneExactMatch" type="xs:boolean" minOccurs="0"/>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="updateDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="valueMask" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSystemRecordsByEUIDStatus">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSystemRecordsByEUIDStatusResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemPerson" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEnterpriseRecordByLID">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="localid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEnterpriseRecordByLIDResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:enterprisePerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupResource">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="resourceName" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupResourceResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:base64Binary" nillable="true" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLastSysInfoLogEntry">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLastSysInfoLogEntryResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mergeSystemRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="sourceLID" type="xs:string" minOccurs="0"/>
+<xs:element name="destLID" type="xs:string" minOccurs="0"/>
+<xs:element name="calculateOnly" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mergeSystemRecordResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:mergePersonResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="splitSystemRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="localid" type="xs:string" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="splitSystemRecordResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mergeEnterpriseRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="fromEUID" type="xs:string" minOccurs="0"/>
+<xs:element name="toEUID" type="xs:string" minOccurs="0"/>
+<xs:element name="calculateOnly" type="xs:boolean"/>
+<xs:element name="setSourceSystemStatusToMerged" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mergeEnterpriseRecordResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:mergePersonResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLIDs">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLIDsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemPersonPK" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="systemPersonPK">
+<xs:sequence>
+<xs:element name="localId" type="xs:string" minOccurs="0"/>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="executeMatch">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="sysObjBean" type="tns:systemPerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="executeMatchResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matchColResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="executeCustomLogic">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="script" type="xs:string" minOccurs="0"/>
+<xs:element name="parameters" type="tns:customLogicParameter" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="customLogicParameter">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="value" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="executeCustomLogicResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:customLogicResponse" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="customLogicResponse">
+<xs:sequence>
+<xs:element name="responseCode" type="xs:int"/>
+<xs:element name="responseText" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupSystemUIDDefinitions">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="lookupSystemUIDDefinitionsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemUIDDefinition" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="systemUIDDefinition">
+<xs:sequence>
+<xs:element name="createDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="properties">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="key" minOccurs="0" type="xs:string"/>
+<xs:element name="value" minOccurs="0" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="type" type="xs:string" minOccurs="0"/>
+<xs:element name="updateDate" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="recalculateMatch">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="recalculateMatchResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matchColResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLIDsByStatus">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLIDsByStatusResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemPersonPK" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSystemRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="localid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSystemRecordResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemPerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unresolvePotentialDuplicate">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="potentialDuplicateId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unresolvePotentialDuplicateResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getSystemRecordHistory">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="localid" type="xs:string" minOccurs="0"/>
+<xs:element name="transnum" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSystemRecordHistoryResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemPersonHistory" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="systemPersonHistory">
+<xs:sequence>
+<xs:element name="after" type="tns:systemPersonHistoryImage" minOccurs="0"/>
+<xs:element name="before" type="tns:systemPersonHistoryImage" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="systemPersonHistoryImage">
+<xs:complexContent>
+<xs:extension base="tns:systemPerson">
+<xs:sequence>
+<xs:element name="EUID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="getEnterpriseRecordStatus">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEnterpriseRecordStatusResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transferSystemRecordUID">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="destSystemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="destLID" type="xs:string" minOccurs="0"/>
+<xs:element name="UIDType" type="xs:string" minOccurs="0"/>
+<xs:element name="UID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transferSystemRecordUIDResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="updateSystemRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="sysObjBean" type="tns:systemPerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateSystemRecordResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getSystemRecordStatus">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="localid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSystemRecordStatusResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="compareRecords">
+<xs:sequence>
+<xs:element name="record1" type="tns:personBean" minOccurs="0"/>
+<xs:element name="record2" type="tns:personBean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="compareRecordsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matchWeight" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="matchWeight">
+<xs:sequence>
+<xs:element name="falsePositiveMessages" type="tns:falsePositiveMessage" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="matchWeightDetails" type="tns:matchWeightDetail" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="weight" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="falsePositiveMessage">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="matchWeightDetail">
+<xs:sequence>
+<xs:element name="matchFunctionDescription" type="xs:string" minOccurs="0"/>
+<xs:element name="matchFunctionId" type="xs:long"/>
+<xs:element name="matchFunctionName" type="xs:string" minOccurs="0"/>
+<xs:element name="value1" type="xs:string" minOccurs="0"/>
+<xs:element name="value2" type="xs:string" minOccurs="0"/>
+<xs:element name="weight" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupSystemRecordUIDs">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="lid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupSystemRecordUIDsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemObjectUIDBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupSystemDefinitions">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="lookupSystemDefinitionsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemDefinition" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unmergeSystemRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="sourceLID" type="xs:string" minOccurs="0"/>
+<xs:element name="destLID" type="xs:string" minOccurs="0"/>
+<xs:element name="calculateOnly" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unmergeSystemRecordResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:mergePersonResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSBRs">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euids" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="allowMergedEuid" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSBRsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:enterprisePerson" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSBR">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSBRResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:sbrPerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addSystemRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+<xs:element name="sysObjBean" type="tns:systemPerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addSystemRecordResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getSBRHistory">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+<xs:element name="transnum" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSBRHistoryResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:sbrPersonHistory" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sbrPersonHistory">
+<xs:sequence>
+<xs:element name="after" type="tns:sbrPerson" minOccurs="0"/>
+<xs:element name="before" type="tns:sbrPerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mergeMultipleEnterpriseRecords">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="sourceEUIDs" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="destinationEO" type="tns:enterprisePerson" minOccurs="0"/>
+<xs:element name="srcRevisionNumbers" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="destRevisionNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="calculateOnly" type="xs:boolean"/>
+<xs:element name="setSourceSystemStatusToMerged" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mergeMultipleEnterpriseRecordsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:mergePersonResult" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMultipleLIDs">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euids" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="returnEuidsAsLids" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMultipleLIDsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemPersonPKArray" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEUIDs">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="localid" type="xs:string" minOccurs="0"/>
+<xs:element name="maxRecs" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEUIDsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSystemRecordsByEUID">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSystemRecordsByEUIDResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemPerson" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="assignRefObjectNodes">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="localid" type="xs:string" minOccurs="0"/>
+<xs:element name="objectType" type="xs:string" minOccurs="0"/>
+<xs:element name="referIds" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="assignRefObjectNodesResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="assignRefObjectNode">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="localid" type="xs:string" minOccurs="0"/>
+<xs:element name="objectType" type="xs:string" minOccurs="0"/>
+<xs:element name="sysObjBean" type="tns:systemPerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="assignRefObjectNodeResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="undoSystemObjectUpdate">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="lid" type="xs:string" minOccurs="0"/>
+<xs:element name="transNum" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="undoSystemObjectUpdateResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="deactivateSystemRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="localid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deactivateSystemRecordResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="addOrUpdateSystemRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+<xs:element name="sysObjBean" type="tns:systemPerson" minOccurs="0"/>
+<xs:element name="checkDups" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addOrUpdateSystemRecordResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getComparison">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="comparisonId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getComparisonResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matchWeight" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getActiveEUID">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getActiveEUIDResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupLIDBySUID">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="UIDType" type="xs:string" minOccurs="0"/>
+<xs:element name="UID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupLIDBySUIDResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemPersonPK" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupLIDs">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="sourceSystemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="sourceLID" type="xs:string" minOccurs="0"/>
+<xs:element name="destSystemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupLIDsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:systemPersonPK" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupPotentialDuplicates">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="PotentialDuplicateSearchObjectBean" type="tns:potentialDuplicateSearchObjectBean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="potentialDuplicateSearchObjectBean">
+<xs:sequence>
+<xs:element name="createEndDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="createStartDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="createUser" type="xs:string" minOccurs="0"/>
+<xs:element name="EUIDs" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="localId" type="xs:string" minOccurs="0"/>
+<xs:element name="maxElements" type="xs:int"/>
+<xs:element name="resolvedEndDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="resolvedStartDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="resolvedUser" type="xs:string" minOccurs="0"/>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupPotentialDuplicatesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:potentialDuplicateResult" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="potentialDuplicateResult">
+<xs:sequence>
+<xs:element name="comparisonId" type="xs:long"/>
+<xs:element name="createDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="createUser" type="xs:string" minOccurs="0"/>
+<xs:element name="EUID1" type="xs:string" minOccurs="0"/>
+<xs:element name="EUID2" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="resolvedComment" type="xs:string" minOccurs="0"/>
+<xs:element name="resolvedDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="resolvedUser" type="xs:string" minOccurs="0"/>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="weight" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="PageException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transferSystemRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="toEUID" type="xs:string" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="localid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transferSystemRecordResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="checkForOverlay">
+<xs:sequence>
+<xs:element name="beforeObj" type="tns:personBean" minOccurs="0"/>
+<xs:element name="afterObj" type="tns:personBean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkForOverlayResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:overlayDetectorResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="overlayDetectorResult">
+<xs:sequence>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="LID" type="xs:string" minOccurs="0"/>
+<xs:element name="overlay" type="xs:boolean"/>
+<xs:element name="rejectTransaction" type="xs:boolean"/>
+<xs:element name="splitRecord" type="xs:boolean"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lookupObjectDefinition">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="lookupObjectDefinitionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:objectDefinition" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="objectDefinition">
+<xs:sequence>
+<xs:element name="nodes" type="tns:nodeDef" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="objectName" type="xs:string" minOccurs="0"/>
+<xs:element name="relationships" type="tns:relationDef" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nodeDef">
+<xs:sequence>
+<xs:element name="endPoint" type="xs:string" minOccurs="0"/>
+<xs:element name="fields" type="tns:fieldDef" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="isRefNode" type="xs:boolean"/>
+<xs:element name="nameSpace" type="xs:string" minOccurs="0"/>
+<xs:element name="operation" type="xs:string" minOccurs="0"/>
+<xs:element name="tag" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fieldDef">
+<xs:sequence>
+<xs:element name="autoid" type="xs:boolean"/>
+<xs:element name="codeModule" type="xs:string" minOccurs="0"/>
+<xs:element name="displayName" type="xs:string" minOccurs="0"/>
+<xs:element name="fieldName" type="xs:string" minOccurs="0"/>
+<xs:element name="fieldSize" type="xs:int"/>
+<xs:element name="fieldType" type="xs:string" minOccurs="0"/>
+<xs:element name="keyType" type="xs:boolean"/>
+<xs:element name="maximumValue" type="xs:string" minOccurs="0"/>
+<xs:element name="minimumValue" type="xs:string" minOccurs="0"/>
+<xs:element name="pattern" type="xs:string" minOccurs="0"/>
+<xs:element name="refKey" type="xs:boolean"/>
+<xs:element name="refMapping" type="xs:string" minOccurs="0"/>
+<xs:element name="required" type="xs:boolean"/>
+<xs:element name="updateable" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="relationDef">
+<xs:sequence>
+<xs:element name="children" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mergeSystemRecordWithImage">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="sourceLID" type="xs:string" minOccurs="0"/>
+<xs:element name="destLID" type="xs:string" minOccurs="0"/>
+<xs:element name="destImage" type="tns:personObject" minOccurs="0"/>
+<xs:element name="calculateOnly" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="personObject" final="extension restriction">
+<xs:complexContent>
+<xs:extension base="tns:objectNode">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="objectNode">
+<xs:sequence>
+<xs:element name="indexMap">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="key" minOccurs="0" type="xs:anyType"/>
+<xs:element name="value" minOccurs="0" type="xs:anyType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="parent" type="tns:objectNode" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mergeSystemRecordWithImageResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:mergePersonResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="activateEnterpriseRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="activateEnterpriseRecordResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getEnterpriseRecords">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euids" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="allowMergedEuid" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEnterpriseRecordsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:enterprisePerson" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRevisionNumber">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRevisionNumberResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resolvePotentialDuplicate">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="potentialDuplicateId" type="xs:string" minOccurs="0"/>
+<xs:element name="permanentResolve" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resolvePotentialDuplicateResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="deactivateEnterpriseRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="euid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deactivateEnterpriseRecordResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getCodesByType">
+<xs:sequence>
+<xs:element name="type" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCodesByTypeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:codeDescription" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="codeDescription">
+<xs:sequence>
+<xs:element name="code" type="xs:string" minOccurs="0"/>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="module" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEUID">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="systemCode" type="xs:string" minOccurs="0"/>
+<xs:element name="localid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEUIDResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mergeEnterpriseRecordWithOverwrites">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="fromEUID" type="xs:string" minOccurs="0"/>
+<xs:element name="toEUID" type="xs:string" minOccurs="0"/>
+<xs:element name="calculateOnly" type="xs:boolean"/>
+<xs:element name="setSourceSystemStatusToMerged" type="xs:boolean"/>
+<xs:element name="overwrite" type="tns:sbrOverWriteBean" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sbrOverWriteBean">
+<xs:sequence>
+<xs:element name="data" type="xs:string" minOccurs="0"/>
+<xs:element name="path" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mergeEnterpriseRecordWithOverwritesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:mergePersonResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="search">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="objBean" type="tns:personBean" minOccurs="0"/>
+<xs:element name="searchOptions" type="tns:eoSearchOptions" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eoSearchOptions">
+<xs:sequence>
+<xs:element name="filterDeactivatedRecords" type="xs:boolean"/>
+<xs:element name="filterMergedRecords" type="xs:boolean"/>
+<xs:element name="maxElements" type="xs:int"/>
+<xs:element name="minimumWeight" type="xs:float" minOccurs="0"/>
+<xs:element name="queryTimeout" type="xs:int"/>
+<xs:element name="searchId" type="xs:string" minOccurs="0"/>
+<xs:element name="simulateMatch" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:scoreElement" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="scoreElement">
+<xs:sequence>
+<xs:element name="comparisonId" type="xs:long" minOccurs="0"/>
+<xs:element name="decisionResult" type="xs:string" minOccurs="0"/>
+<xs:element name="EUID" type="xs:string" minOccurs="0"/>
+<xs:element name="falsePositiveExplanation" type="xs:string" minOccurs="0"/>
+<xs:element name="potentialFalsePositive" type="xs:boolean"/>
+<xs:element name="weight" type="xs:double"/>
+<xs:element name="weightExplanation" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="undoAssumedMatch">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="assumedMatchId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="undoAssumedMatchResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateEnterpriseRecord">
+<xs:sequence>
+<xs:element name="callerInfo" type="tns:callerInfo" minOccurs="0"/>
+<xs:element name="eoBean" type="tns:enterprisePerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateEnterpriseRecordResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="systemPersonPKArray" final="#all">
+<xs:sequence>
+<xs:element name="item" type="tns:systemPersonPK" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

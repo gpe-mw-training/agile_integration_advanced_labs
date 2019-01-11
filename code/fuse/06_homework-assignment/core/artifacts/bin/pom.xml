@@ -1,0 +1,115 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.customer.app</groupId>
+    <artifactId>core</artifactId>
+    <version>1.0</version>
+  </parent>
+
+  <artifactId>artifacts</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>bundle</packaging>
+
+  <name>Customer :: Application :: Core :: Artifacts</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>process-sources</phase>
+            <configuration>
+              <sources>
+                <source>${project.build.directory}/generated-sources</source>
+              </sources>
+            </configuration>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-xjc-plugin</artifactId>
+        <version>3.0.5</version>
+        <executions>
+          <execution>
+            <id>generate-sources</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>xsdtojava</goal>
+            </goals>
+            <configuration>
+              <sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
+              <xsdOptions>
+                <xsdOption>
+                  <xsd>${basedir}/src/main/resources/META-INF/xsd/ESBResponse.xsd</xsd>
+                  <packagename>com.customer.app.response</packagename>
+                  <bindingFile>${basedir}/src/main/resources/rs/binding.xjb</bindingFile>
+                  <extension>true</extension>
+                </xsdOption>
+                <xsdOption>
+                  <xsd>${basedir}/src/main/resources/META-INF/xsd/PatientDemographics.xsd</xsd>
+                  <packagename>com.customer.app</packagename>
+                  <bindingFile>${basedir}/src/main/resources/rs/binding.xjb</bindingFile>
+                  <extension>true</extension>
+                </xsdOption>
+              </xsdOptions>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-codegen-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>generate-sources</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>wsdl2java</goal>
+            </goals>
+            <configuration>
+              <wsdlOptions>
+                <wsdlOption>
+                  <wsdl>${basedir}/src/main/resources/META-INF/wsdl/EMPI_18080_2.wsdl</wsdl>
+                  <bindingFiles>
+                    <bindingFile>${basedir}/src/main/resources/ws/binding.xml</bindingFile>
+                  </bindingFiles>
+                </wsdlOption>
+              </wsdlOptions>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+            <Include-Resource>
+              {maven-resources}
+            </Include-Resource>
+            <Export-Package>
+              META-INF.wsdl,
+              META-INF.xsd,
+              com.sun.mdm.index.webservice,
+              com.customer.app,
+              com.customer.app.response
+            </Export-Package>
+	    <_failok>true</_failok>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

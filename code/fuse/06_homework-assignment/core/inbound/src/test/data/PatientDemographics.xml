@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:Person xmlns:p="http://www.app.customer.com"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.app.customer.com PatientDemographics.xsd ">
+    <p:identifier>
+        <p:identifier>p:identifier</p:identifier>
+        <p:idtype>p:idtype</p:idtype>
+        <p:assigningauthority>p:assigningauthority</p:assigningauthority>
+    </p:identifier>
+    <p:PartiesAlternateId>
+        <p:alternateidsrole xsi:type="p:Code"/>
+        <p:alternateid>
+            <p:identifier>p:identifier</p:identifier>
+        </p:alternateid>
+    </p:PartiesAlternateId>
+    <p:age>0</p:age>
+    <p:agegroup>p:agegroup</p:agegroup>
+    <p:dateofdeath>
+        <p:literal>p:literal</p:literal>
+    </p:dateofdeath>
+    <p:isdeceased>true</p:isdeceased>
+    <p:deathcertificatenumber>p:deathcertificatenumber</p:deathcertificatenumber>
+    <p:isorgandonor>true</p:isorgandonor>
+    <p:multiplebirthorder>0</p:multiplebirthorder>
+    <p:ageatdeath>
+        <p:unit xsi:type="p:Code"/>
+        <p:value/>
+    </p:ageatdeath>
+    <p:wasmultiplebirth>true</p:wasmultiplebirth>
+    <p:dateofbirth>
+        <p:literal>p:literal</p:literal>
+    </p:dateofbirth>
+    <p:Patient>
+        <p:begindate>2001-12-31T12:00:00</p:begindate>
+        <p:enddate>2001-12-31T12:00:00</p:enddate>
+        <p:mothersidentifier>p:mothersidentifier</p:mothersidentifier>
+        <p:patientid>p:patientid</p:patientid>
+        <p:sourcesystemidentifier>p:sourcesystemidentifier</p:sourcesystemidentifier>
+        <p:locationid>p:locationid</p:locationid>
+        <p:facilitynumber>p:facilitynumber</p:facilitynumber>
+        <p:locationtype xsi:type="p:Code"/>
+        <p:status xsi:type="p:Code"/>
+        <p:HealthcareProvider/>
+        <p:HealthRecord/>
+        <p:PatientInformation/>
+    </p:Patient>
+    <p:CauseOfDeath>
+        <p:causeofdeath xsi:type="p:Code"/>
+        <p:timeinterval/>
+        <p:precedence>0</p:precedence>
+    </p:CauseOfDeath>
+    <p:systemcode>p:systemcode</p:systemcode>
+    <p:updatetimestamp>p:updatetimestamp</p:updatetimestamp>
+    <p:localid>p:localid</p:localid>
+    <p:birthname>p:birthname</p:birthname>
+    <p:legalname>
+        <p:prefix>p:prefix</p:prefix>
+        <p:given>p:given</p:given>
+        <p:nickname>p:nickname</p:nickname>
+        <p:family>p:family</p:family>
+        <p:suffix>p:suffix</p:suffix>
+        <p:initials>p:initials</p:initials>
+        <p:middle>p:middle</p:middle>
+    </p:legalname>
+    <p:alternatename>
+        <p:prefix>p:prefix</p:prefix>
+        <p:given>p:given</p:given>
+        <p:nickname>p:nickname</p:nickname>
+        <p:family>p:family</p:family>
+        <p:suffix>p:suffix</p:suffix>
+        <p:initials>p:initials</p:initials>
+        <p:middle>p:middle</p:middle>
+    </p:alternatename>
+    <p:spousename>
+        <p:prefix>p:prefix</p:prefix>
+        <p:given>p:given</p:given>
+        <p:nickname>p:nickname</p:nickname>
+        <p:family>p:family</p:family>
+        <p:suffix>p:suffix</p:suffix>
+        <p:initials>p:initials</p:initials>
+        <p:middle>p:middle</p:middle>
+    </p:spousename>
+    <p:mothersmaidenname>p:mothersmaidenname</p:mothersmaidenname>
+    <p:fathername>p:fathername</p:fathername>
+    <p:mothername>p:mothername</p:mothername>
+    <p:ssn>
+        <p:identifier>p:identifier</p:identifier>
+        <p:idtype>p:idtype</p:idtype>
+        <p:assigningauthority>p:assigningauthority</p:assigningauthority>
+    </p:ssn>
+    <p:race xsi:type="p:Code">
+        <p:code>p:code</p:code>
+        <p:displaytext>p:displaytext</p:displaytext>
+        <p:codesystem>p:codesystem</p:codesystem>
+        <p:codesystemversion>p:codesystemversion</p:codesystemversion>
+    </p:race>
+    <p:religion xsi:type="p:Code">
+        <p:code>p:code</p:code>
+        <p:displaytext>p:displaytext</p:displaytext>
+        <p:codesystem>p:codesystem</p:codesystem>
+        <p:codesystemversion>p:codesystemversion</p:codesystemversion>
+    </p:religion>
+    <p:birthaddress>
+        <p:city>p:city</p:city>
+        <p:state>p:state</p:state>
+        <p:country>p:country</p:country>
+    </p:birthaddress>
+    <p:vipflag>true</p:vipflag>
+    <p:veteranstatus>true</p:veteranstatus>
+    <p:driverslicensestate>p:driverslicensestate</p:driverslicensestate>
+    <p:repatriationnumber>p:repatriationnumber</p:repatriationnumber>
+    <p:districtofresidence>p:districtofresidence</p:districtofresidence>
+    <p:lgacode>p:lgacode</p:lgacode>
+    <p:commentvalue>p:commentvalue</p:commentvalue>
+    <p:gender xsi:type="p:Code">
+        <p:code>p:code</p:code>
+        <p:displaytext>p:displaytext</p:displaytext>
+        <p:codesystem>p:codesystem</p:codesystem>
+        <p:codesystemversion>p:codesystemversion</p:codesystemversion>
+    </p:gender>
+    <p:maritalstatus xsi:type="p:Code">
+        <p:code>p:code</p:code>
+        <p:displaytext>p:displaytext</p:displaytext>
+        <p:codesystem>p:codesystem</p:codesystem>
+        <p:codesystemversion>p:codesystemversion</p:codesystemversion>
+    </p:maritalstatus>
+    <p:ethnicity xsi:type="p:Code">
+        <p:code>p:code</p:code>
+        <p:displaytext>p:displaytext</p:displaytext>
+        <p:codesystem>p:codesystem</p:codesystem>
+        <p:codesystemversion>p:codesystemversion</p:codesystemversion>
+    </p:ethnicity>
+    <p:administrativegender xsi:type="p:NullableCode">
+        <p:code>p:code</p:code>
+        <p:displaytext>p:displaytext</p:displaytext>
+        <p:codesystem>p:codesystem</p:codesystem>
+        <p:codesystemversion>p:codesystemversion</p:codesystemversion>
+        <p:originaltext>p:originaltext</p:originaltext>
+        <p:nullflavor>askedbutunknown</p:nullflavor>
+    </p:administrativegender>
+    <p:religiousaffiliation>p:religiousaffiliation</p:religiousaffiliation>
+    <p:preferredcontactmethod>p:preferredcontactmethod</p:preferredcontactmethod>
+    <p:primaryhomeaddress xsi:type="p:Address">
+        <p:addresstype>postal</p:addresstype>
+        <p:effectivedaterange/>
+        <p:line1>p:line1</p:line1>
+        <p:line2>p:line2</p:line2>
+        <p:line3>p:line3</p:line3>
+        <p:line4>p:line4</p:line4>
+        <p:city>p:city</p:city>
+        <p:county xsi:type="p:Code"/>
+        <p:postalcode>p:postalcode</p:postalcode>
+        <p:state xsi:type="p:Code"/>
+        <p:country xsi:type="p:Code"/>
+    </p:primaryhomeaddress>
+    <p:primaryhomeemail>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:primaryhomeemail>
+    <p:primaryhomephone>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:primaryhomephone>
+    <p:primaryhomephoneextension>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:primaryhomephoneextension>
+    <p:primarycellphone>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:primarycellphone>
+    <p:primaryhomepager>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:primaryhomepager>
+    <p:workaddress xsi:type="p:Address">
+        <p:addresstype>postal</p:addresstype>
+        <p:effectivedaterange/>
+        <p:line1>p:line1</p:line1>
+        <p:line2>p:line2</p:line2>
+        <p:line3>p:line3</p:line3>
+        <p:line4>p:line4</p:line4>
+        <p:city>p:city</p:city>
+        <p:county xsi:type="p:Code"/>
+        <p:postalcode>p:postalcode</p:postalcode>
+        <p:state xsi:type="p:Code"/>
+        <p:country xsi:type="p:Code"/>
+    </p:workaddress>
+    <p:workemail>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:workemail>
+    <p:workphone>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:workphone>
+    <p:workphoneextension>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:workphoneextension>
+    <p:workpager>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:workpager>
+    <p:temporaryaddress xsi:type="p:Address">
+        <p:addresstype>postal</p:addresstype>
+        <p:effectivedaterange/>
+        <p:line1>p:line1</p:line1>
+        <p:line2>p:line2</p:line2>
+        <p:line3>p:line3</p:line3>
+        <p:line4>p:line4</p:line4>
+        <p:city>p:city</p:city>
+        <p:county xsi:type="p:Code"/>
+        <p:postalcode>p:postalcode</p:postalcode>
+        <p:state xsi:type="p:Code"/>
+        <p:country xsi:type="p:Code"/>
+    </p:temporaryaddress>
+    <p:temporaryemail>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:temporaryemail>
+    <p:temporaryphone>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:temporaryphone>
+    <p:temporaryphoneextension>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:temporaryphoneextension>
+    <p:temporarypager>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:temporarypager>
+    <p:handicap>p:handicap</p:handicap>
+    <p:identityrealibilitycode>p:identityrealibilitycode</p:identityrealibilitycode>
+    <p:isidentityunknown>true</p:isidentityunknown>
+    <p:istranslatorneeded>true</p:istranslatorneeded>
+    <p:lastupdatefacility>
+        <p:identifier>p:identifier</p:identifier>
+        <p:idtype>p:idtype</p:idtype>
+        <p:assigningauthority>p:assigningauthority</p:assigningauthority>
+    </p:lastupdatefacility>
+    <p:livingarrangement xsi:type="p:Code">
+        <p:code>p:code</p:code>
+        <p:displaytext>p:displaytext</p:displaytext>
+        <p:codesystem>p:codesystem</p:codesystem>
+        <p:codesystemversion>p:codesystemversion</p:codesystemversion>
+    </p:livingarrangement>
+    <p:livingdependency>p:livingdependency</p:livingdependency>
+    <p:billingaddress xsi:type="p:Address">
+        <p:addresstype>postal</p:addresstype>
+        <p:effectivedaterange/>
+        <p:line1>p:line1</p:line1>
+        <p:line2>p:line2</p:line2>
+        <p:line3>p:line3</p:line3>
+        <p:line4>p:line4</p:line4>
+        <p:city>p:city</p:city>
+        <p:county xsi:type="p:Code"/>
+        <p:postalcode>p:postalcode</p:postalcode>
+        <p:state xsi:type="p:Code"/>
+        <p:country xsi:type="p:Code"/>
+    </p:billingaddress>
+    <p:billingemail>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:billingemail>
+    <p:billingphone>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:billingphone>
+    <p:billingphoneextension>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:billingphoneextension>
+    <p:billingpager>
+        <p:contactmechanismtype>p:contactmechanismtype</p:contactmechanismtype>
+        <p:effectivedaterange/>
+        <p:istextmessageenabled>true</p:istextmessageenabled>
+        <p:universalrecordid>p:universalrecordid</p:universalrecordid>
+    </p:billingpager>
+    <p:empistatus xsi:type="p:Code">
+        <p:code>p:code</p:code>
+        <p:displaytext>p:displaytext</p:displaytext>
+        <p:codesystem>p:codesystem</p:codesystem>
+        <p:codesystemversion>p:codesystemversion</p:codesystemversion>
+    </p:empistatus>
+    <p:PersonalRelationship>
+        <p:relationshipcategorycode xsi:type="p:Code"/>
+        <p:effectivedaterange/>
+        <p:Person/>
+    </p:PersonalRelationship>
+    <p:Citizenship>
+        <p:effectivedaterange/>
+        <p:Country/>
+    </p:Citizenship>
+    <p:ContactParty>
+        <p:contactcategory xsi:type="p:Code"/>
+        <p:contactreason>p:contactreason</p:contactreason>
+        <p:isprimarycontact>true</p:isprimarycontact>
+        <p:effectivedaterange/>
+        <p:enddate>2001-12-31T12:00:00</p:enddate>
+        <p:Person/>
+    </p:ContactParty>
+    <p:OccupationalHistoryObservation>
+        <p:currentindustryclassification xsi:type="p:CodeWithOriginalText"/>
+        <p:currentoccupation xsi:type="p:CodeWithOriginalText"/>
+        <p:dateobserved/>
+        <p:usualindustry xsi:type="p:CodeWithOriginalText"/>
+        <p:usualoccupation xsi:type="p:CodeWithOriginalText"/>
+        <p:yearsincurrentoccupation/>
+        <p:yearsinusualoccupation/>
+    </p:OccupationalHistoryObservation>
+    <p:PersonPension>
+        <p:pensionnumber>p:pensionnumber</p:pensionnumber>
+        <p:pensionexpirationdate>2001-12-31T12:00:00</p:pensionexpirationdate>
+    </p:PersonPension>
+    <p:USUniformedServicesPerson>
+        <p:militarybranch xsi:type="p:Code"/>
+        <p:militaryrank xsi:type="p:Code"/>
+        <p:militarystatus xsi:type="p:Code"/>
+        <p:militarygrade xsi:type="p:Code"/>
+        <p:effectivedaterange/>
+    </p:USUniformedServicesPerson>
+    <p:LanguageCapability>
+        <p:ispreferred>true</p:ispreferred>
+        <p:language xsi:type="p:Code"/>
+        <p:methodofexpression xsi:type="p:Code"/>
+        <p:proficiencylevel xsi:type="p:Code"/>
+    </p:LanguageCapability>
+    <p:AdvanceDirective xsi:type="p:AdvanceDirective">
+        <p:category xsi:type="p:Code"/>
+        <p:comments>p:comments</p:comments>
+        <p:datelastverified>0</p:datelastverified>
+        <p:effectivedaterange/>
+        <p:image/>
+        <p:paperlocator>p:paperlocator</p:paperlocator>
+        <p:status xsi:type="p:Code"/>
+    </p:AdvanceDirective>
+</p:Person> 

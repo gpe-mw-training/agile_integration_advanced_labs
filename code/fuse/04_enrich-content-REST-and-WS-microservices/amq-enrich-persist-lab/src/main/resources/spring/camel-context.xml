@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd       http://camel.apache.org/schema/cxf  http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+    <cxf:cxfEndpoint
+        address="http://{{soap.host}}:{{soap.port}}/ws/customerService"
+        id="customerWebService" loggingFeatureEnabled="true"
+        serviceClass="org.fuse.usecase.service.CustomerWS" wsdlURL="classpath:wsdl/customerService.wsdl"/>
+    <bean class="org.fuse.usecase.AccountAggregator" id="reconcileData"/>
+    <bean class="org.fuse.usecase.ProcessorBean" id="processorBean"/>
+    <!--  THIS PROVIDER DOESN'T WORK & RETURN ERROR 415 Unsupported Media Type
+      It can't also handle the Body : No message body reader has been found for
+      class CXF_Test.cxf_test.Book, ContentType: application/json
+      <bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider"/>
+    -->
+    <bean
+        class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider" id="jsonProvider"/>
+    <camelContext id="_camelContext1" xmlns="http://camel.apache.org/schema/spring">
+    </camelContext>
+</beans>

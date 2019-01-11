@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+    xmlns:osgi="http://www.springframework.org/schema/osgi"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd   http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd   http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- This reference just lets all of our routes use the same
+  connection pool set up in the mq-service project -->
+    <osgi:reference id="activemqService" interface="org.apache.camel.Component"/>
+    <bean class="com.redhat.usecase.service.impl.DEIMServiceImpl" id="demographicImpl"/>
+    <jaxrs:server address="http://localhost:9098/cxf/demos" id="demoGraphicsService">
+        <jaxrs:serviceBeans>
+            <ref bean="demographicImpl"/>
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
+    <camelContext id="inboundRest" trace="false" xmlns="http://camel.apache.org/schema/spring">
+        <dataFormats>
+            <jaxb contextPath="com.customer.app" id="personFormat" partClass="com.customer.app.Person"/>
+        </dataFormats>
+        <!-- this is the route called by DEIMServiceImpl -->
+        <route id="handleRest">
+        </route>
+    </camelContext>
+</beans>

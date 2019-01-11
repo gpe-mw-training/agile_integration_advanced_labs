@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Envelope xmlns:ns2="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns3="http://webservice.index.mdm.sun.com/">
+    <ns2:Body>
+        <ns3:executeMatchUpdate>
+            <callerInfo>
+                <application>App</application>
+                <applicationFunction>Function</applicationFunction>
+                <authUser>XML</authUser>
+            </callerInfo>
+            <sysObjBean>
+                <person>
+                    <fatherName>Dad</fatherName>
+                    <firstName>First</firstName>
+                    <gender>Male</gender>
+                </person>
+            </sysObjBean>
+        </ns3:executeMatchUpdate>
+    </ns2:Body>
+</ns2:Envelope>

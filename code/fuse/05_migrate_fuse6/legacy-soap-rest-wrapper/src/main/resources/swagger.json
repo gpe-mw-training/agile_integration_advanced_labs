@@ -1,0 +1,158 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "Account API"
+  },
+  "host" : "0.0.0.0:8080",
+  "basePath" : "/api",
+  "tags" : [ {
+    "name" : "jaxrs",
+    "description" : "Account REST service"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/jaxrs/account" : {
+      "put" : {
+        "tags" : [ "jaxrs" ],
+        "summary" : "Enrich and Update a user account",
+        "operationId" : "route1",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Account"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Output type",
+            "schema" : {
+              "$ref" : "#/definitions/CorporateAccount"
+            }
+          },
+          "204" : {
+            "description" : "User account successfully updated"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Account" : {
+      "type" : "object",
+      "properties" : {
+        "clientId" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : 12343,
+          "description" : "ClientId of Account. "
+        },
+        "company" : {
+          "description" : "Company Details. ",
+          "$ref" : "#/definitions/Company"
+        },
+        "contact" : {
+          "description" : "Contact Details. ",
+          "$ref" : "#/definitions/Contact"
+        },
+        "salesRepresentative" : {
+          "type" : "string",
+          "example" : "Satya Jayanti",
+          "description" : "Sales representative. "
+        }
+      },
+      "description" : "Represents an Account of the system"
+    },
+    "Company" : {
+      "type" : "object",
+      "properties" : {
+        "active" : {
+          "type" : "boolean",
+          "example" : true,
+          "description" : "Active Status of company. "
+        },
+        "geo" : {
+          "type" : "string",
+          "example" : "NA",
+          "description" : "Geo location of company. "
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "Apple",
+          "description" : "Name of company. "
+        }
+      },
+      "description" : "Represents a company of the system"
+    },
+    "Contact" : {
+      "type" : "object",
+      "properties" : {
+        "city" : {
+          "type" : "string",
+          "example" : "New York",
+          "description" : "City of account. "
+        },
+        "firstName" : {
+          "type" : "string",
+          "example" : "Jeff",
+          "description" : "First Name of account. "
+        },
+        "lastName" : {
+          "type" : "string",
+          "example" : "Bride",
+          "description" : "Last Name of account. "
+        },
+        "phone" : {
+          "type" : "string",
+          "example" : "1-631-555-5555",
+          "description" : "Phone of account. "
+        },
+        "state" : {
+          "type" : "string",
+          "example" : "New York",
+          "description" : "State of account. "
+        },
+        "streetAddr" : {
+          "type" : "string",
+          "example" : "1000 America Ave",
+          "description" : "Street Address of account. "
+        },
+        "zip" : {
+          "type" : "string",
+          "example" : "11221",
+          "description" : "Zip of account. "
+        }
+      },
+      "description" : "Represents a contact of the system"
+    },
+    "CorporateAccount" : {
+      "type" : "object",
+      "properties" : {
+        "company" : {
+          "description" : "Company of account. ",
+          "$ref" : "#/definitions/Company"
+        },
+        "contact" : {
+          "description" : "Contact details of account. ",
+          "$ref" : "#/definitions/Contact"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : 123,
+          "description" : "Id of account. "
+        },
+        "salesContact" : {
+          "type" : "string",
+          "example" : "Satya Jayanti",
+          "description" : "Sales contact of account. "
+        }
+      },
+      "description" : "Represents an Corporate Account of the system"
+    }
+  }
+}

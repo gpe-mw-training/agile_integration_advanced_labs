@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.customer.app</groupId>
+  <artifactId>parent</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+
+  <name>Customer :: Application</name>
+  <description>Parent POM Customer Application</description>
+  <inceptionYear>2013</inceptionYear>
+
+  <organization>
+    <name>Customer</name>
+    <url>http://www.customer.com</url>
+  </organization>
+
+  <properties>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <notice.used.software>See META-INF/DEPENDENCIES</notice.used.software>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <jboss.fuse.bom.version>6.2.1.redhat-084</jboss.fuse.bom.version>
+    <maven.bundle.plugin.version>2.3.7</maven.bundle.plugin.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.jboss.fuse.bom</groupId>
+        <artifactId>jboss-fuse-parent</artifactId>
+        <version>${jboss.fuse.bom.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>${maven.bundle.plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+<repositories>
+  <repository>
+    <id>jboss-ga-repository</id>
+    <url>http://maven.repository.redhat.com/techpreview/all</url>
+    <releases>
+      <enabled>true</enabled>
+    </releases>
+    <snapshots>
+      <enabled>false</enabled>
+    </snapshots>
+  </repository>
+  <repository>
+    <id>jboss-public-repository</id>
+    <url>http://repository.jboss.org/nexus/content/repositories/public/</url>
+    <releases>
+      <enabled>true</enabled>
+    </releases>
+    <snapshots>
+      <enabled>false</enabled>
+    </snapshots>
+  </repository>
+  <repository>
+    <id>fuse-repository</id>
+    <url>http://repo.fusesource.com/nexus/content/groups/public/</url>
+    <releases>
+      <enabled>true</enabled>
+    </releases>
+    <snapshots>
+      <enabled>false</enabled>
+    </snapshots>
+  </repository>
+  <repository>
+    <id>fusesource</id>
+    <url>http://repo.fusesource.com/maven2</url>
+    <snapshots>
+      <enabled>false</enabled>
+      <updatePolicy>daily</updatePolicy>
+    </snapshots>
+    <releases>
+      <enabled>true</enabled>
+      <updatePolicy>daily</updatePolicy>
+    </releases>
+  </repository>
+</repositories>
+
+<pluginRepositories>
+  <pluginRepository>
+    <id>jboss-ga-plugin-repository</id>
+    <url>http://maven.repository.redhat.com/techpreview/all</url>
+    <releases>
+      <enabled>true</enabled>
+    </releases>
+    <snapshots>
+      <enabled>false</enabled>
+    </snapshots>
+  </pluginRepository>
+  <pluginRepository>
+    <id>jboss-public-plugin-repository</id>
+    <url>http://repository.jboss.org/nexus/content/repositories/public/</url>
+    <releases>
+      <enabled>true</enabled>
+    </releases>
+    <snapshots>
+      <enabled>false</enabled>
+    </snapshots>
+  </pluginRepository>
+  <pluginRepository>
+    <id>fusesource</id>
+    <name>jboss-fusesource</name>
+    <url>http://repo.fusesource.com/maven2</url>
+    <releases>
+      <enabled>true</enabled>
+      <updatePolicy>daily</updatePolicy>
+    </releases>
+    <snapshots>
+      <enabled>false</enabled>
+      <updatePolicy>daily</updatePolicy>
+    </snapshots>
+  </pluginRepository>
+</pluginRepositories>
+
+</project>

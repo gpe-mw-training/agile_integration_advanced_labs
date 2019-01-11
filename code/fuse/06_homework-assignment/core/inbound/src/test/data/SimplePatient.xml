@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:Person xmlns:p="http://www.app.customer.com"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.app.customer.com PatientDemographics.xsd ">
+
+  <p:age>30</p:age>
+  <p:legalname>
+    <p:given>First</p:given>
+    <p:family>Last</p:family>
+  </p:legalname>
+  <p:fathername>Dad</p:fathername>
+  <p:mothername>Mom</p:mothername>
+  <p:gender xsi:type="p:Code">
+    <p:code>Male</p:code>
+  </p:gender>
+</p:Person>

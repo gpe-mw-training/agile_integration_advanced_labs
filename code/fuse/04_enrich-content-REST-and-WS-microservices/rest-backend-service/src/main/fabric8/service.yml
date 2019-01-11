@@ -1,0 +1,7 @@
+metadata:
+  annotations:
+    api.service.kubernetes.io/path: /rest/customerservice/enrich
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080

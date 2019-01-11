@@ -1,0 +1,25 @@
+spec:
+  template:
+    spec:
+      containers:
+        - 
+          resources:
+            requests:
+              cpu: "1.0"
+              memory: 512Mi
+            limits:
+              cpu: "1.5"
+              memory: 1Gi
+          env:
+          - name: SPRING_APPLICATION_JSON
+            value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
+          - name: AMQP_HOST
+            value: broker-amq-amqp
+          - name: POSTGRESQL_SERVICE_NAME
+            value: postgresql
+          - name: POSTGRESQL_SERVICE_DATABASE
+            value: sampledb
+          - name: POSTGRESQL_SERVICE_USERNAME
+            value: postgres
+          - name: POSTGRESQL_SERVICE_PASSWORD
+            value: postgres              

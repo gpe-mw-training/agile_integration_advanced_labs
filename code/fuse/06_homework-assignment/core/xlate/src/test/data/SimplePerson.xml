@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Person xmlns="http://www.app.customer.com">
+    <age>30</age>
+    <legalname>
+        <given>First</given>
+        <family>Last</family>
+    </legalname>
+    <fathername>Dad</fathername>
+    <mothername>Mom</mothername>
+    <gender>
+        <code>Male</code>
+    </gender>
+</Person>
