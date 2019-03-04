@@ -3,18 +3,19 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.redhat.gpte.training</groupId>
-  <artifactId>amq-enrich-persist-lab</artifactId>
+  <groupId>com.redhat.training.gpte</groupId>
+  <artifactId>update-rest-publish-and-fix-errors-lab</artifactId>
   <version>1.0.0</version>
 
-  <name>Agile Integration :: Fuse :: Spring-Boot :: Camel XML :: AMQ Enrich and Persist Lab</name>
-  <description>Spring Boot Fuse Application running a Camel route defined in XML to read from AMQ, enrich message using 2 backend services, and persist the data in SQL database.</description>
+  <name>Agile Integration :: AMQ :: Spring-Boot :: Camel XML :: Publish and Fix Errors</name>
+  <description>Spring Boot Fuse application running a Camel route defined in XML to read REST input, and provide error publish and fix routes.</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <!-- Spring Boot default profile in order to use an embedded database -->
     <run.profiles>dev</run.profiles>
+    
     <!-- configure the Fuse version you want to use here -->
     <fuse.version>7.2.0.fuse-720020-redhat-00001</fuse.version>
   </properties>
@@ -30,7 +31,7 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-  
+
   <dependencies>
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -54,22 +55,16 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
+    
+    <!--  Camel dependencies -->
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-http4</artifactId>
-    </dependency>          
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-cxf</artifactId>
+      <artifactId>camel-bindy</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-cxf-transport</artifactId>
-    </dependency>    
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-sql</artifactId>
-    </dependency>     
+      <artifactId>camel-dozer</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-jackson</artifactId>
@@ -79,10 +74,9 @@
       <artifactId>camel-servlet</artifactId>
     </dependency>  
     <dependency>
-      <groupId>com.fasterxml.jackson.jaxrs</groupId>
-      <artifactId>jackson-jaxrs-json-provider</artifactId>
-    </dependency>    
-
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-sql</artifactId>
+    </dependency>     
     <!--  AMQP Dependencies -->
     
     
@@ -95,7 +89,7 @@
       <groupId>org.apache.activemq</groupId>
       <artifactId>activemq-jms-pool</artifactId>
     </dependency>
-      
+    
     <!--  embedded H2 database -->
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
@@ -106,7 +100,8 @@
 	    <artifactId>h2</artifactId>
 	    <version>1.4.193.redhat-2</version>
 	    <scope>runtime</scope>
-	</dependency>
+	</dependency>    
+
 
 
 	<dependency>
@@ -114,15 +109,15 @@
 		<artifactId>postgresql</artifactId>
 		<scope>runtime</scope>
 	</dependency>	
-  </dependencies>
+	    
+   </dependencies>
 
     <build>
     	<defaultGoal>spring-boot:run</defaultGoal>
-    	
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>io.fabric8</groupId>
+                    <groupId>org.jboss.redhat-fuse</groupId>
                     <artifactId>fabric8-maven-plugin</artifactId>
                     <version>${fuse.version}</version>
                 </plugin>
@@ -151,6 +146,7 @@
                         </goals>
                     </execution>
                 </executions>
+                <version>${fuse.version}</version>
             </plugin>
         </plugins>
     </build>
@@ -200,13 +196,14 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
     <profiles>
         <profile>
             <id>openshift</id>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>io.fabric8</groupId>
+                        <groupId>org.jboss.redhat-fuse</groupId>
                         <artifactId>fabric8-maven-plugin</artifactId>
                         <configuration>
                             <enricher>

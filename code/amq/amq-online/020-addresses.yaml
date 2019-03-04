@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: List
+items:
+- apiVersion: enmasse.io/v1alpha1
+  kind: Address
+  metadata:
+    name: # Address space and address name, e.g. rth-fuse-space.my-queue
+  spec:
+    address: # AMQ address name
+    plan: # AMQ Online address plan name, e.g. 'brokered-queue'
+    type: # AMQ Online address type for the address plan, e.g. 'queue'
+# Multiple addresses can be specified in this List
+# BEGIN EXCLUDE
+- apiVersion: enmasse.io/v1alpha1
+  kind: Address
+  metadata:
+    name: rth-fuse-space.account-queue
+  spec:
+    address: accountQueue
+    plan: brokered-queue
+    type: queue
+- apiVersion: enmasse.io/v1alpha1
+  kind: Address
+  metadata:
+    name: rth-fuse-space.input-queue
+  spec:
+    address: inputQueue
+    plan: brokered-queue
+    type: queue
+- apiVersion: enmasse.io/v1alpha1
+  kind: Address
+  metadata:
+    name: rth-fuse-space.error-notification
+  spec:
+    address: errorNotification
+    plan: brokered-topic
+    type: topic
+# END EXCLUDE

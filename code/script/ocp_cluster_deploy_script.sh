@@ -11,6 +11,8 @@ sleep 10s
 REGION=0b11
 OCP_DOMAIN=openshift.opentlc.com
 OCP_SUFFIX=apps.$REGION.$OCP_DOMAIN
+OCP_AMP_ADMIN_ID=api0
+
 
 # Start and End tenants.
 # CHANGE DEPENDING ON NO OF TENANTS REQUIRED
@@ -103,6 +105,9 @@ oc new-app --template=apicurito --param=ROUTE_HOSTNAME=apicurito.$OCP_SUFFIX
 
 sleep 60s;
 
+### Grant Access for 3scale Default account (for discovery)
+
+oc adm policy add-cluster-role-to-user view system:serviceaccount:3scale-mt-$OCP_AMP_ADMIN_ID:default
 
 ## LOOP FOR TENANTS
 
@@ -110,7 +115,7 @@ sleep 60s;
 # Each user is given admin rights to their corresponding projects.
 
 
-    for i in $(seq $START_TENANT $END_TENANT) ; do
+for i in $(seq $START_TENANT $END_TENANT) ; do
 
 	   
 	tenantId=user$i;
@@ -139,4 +144,4 @@ sleep 60s;
 	bash install-syndesis --route $tenantId-fuse-online.$OCP_SUFFIX 
 
 
-    done;	
+done;	

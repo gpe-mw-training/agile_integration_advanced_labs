@@ -11,10 +11,13 @@
     <name>Advanced Agile Integration :: Fuse :: Use Case :: All</name>
 
     <modules>
-        <module>01_file-split-and-transform</module>
-        <module>02_rest-split-and-transform</module>
-        <module>03_rest-publish-and-fix-errors</module>
-        <module>04_enrich-content-REST-and-WS-microservices</module>
+        <module>01_file-split-and-transform/file-split-transform-lab</module>
+        <module>02_rest_split_transform_amq/rest-split-transform-amq-lab</module>
+        <module>03_rest-publish-and-fix-errors/rest-publish-and-fix-errors-lab</module>
+        <module>04_enrich-content-REST-and-WS-microservices/amq-enrich-persist-lab</module>
+        <module>04_enrich-content-REST-and-WS-microservices/rest-backend-service</module>
+        <module>04_enrich-content-REST-and-WS-microservices/soap-backend-service</module>
+        <module>05_migrate_fuse6/legacy-soap-rest-wrapper</module>
     </modules>
 
 </project>

@@ -1,0 +1,13 @@
+apiVersion: enmasse.io/v1alpha1
+kind: AddressSpace
+metadata:
+  name: ### Address space name with student ID, e.g. rth-fuse-space ###
+# EXCLUDE-BEGIN
+  name: rth-fuse-space
+# EXCLUDE-END
+spec:
+  type: brokered
+  plan: ### Existing address space plan from amq-online-infra namespace ###
+# EXCLUDE-BEGIN
+  plan: brokered-single-broker
+# EXCLUDE-END

@@ -1,0 +1,41 @@
+spec:
+  template:
+    spec:
+      containers:
+        - 
+          resources:
+            requests:
+              cpu: 250m
+              memory: 256Mi
+            limits:
+              cpu: "1"
+              memory: 512Mi
+          env:
+          - name: SPRING_APPLICATION_JSON
+            value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
+          - name: AMQP_HOST
+            value: # Address space AMQ Online service host in amq-online-infra
+          - name: AMQP_PORT
+            value: # Address space AMQ Online service port in amq-online-infra
+          - name: AMQP_USERNAME
+            value: # AMQ Online messaging user name
+          - name: AMQP_PASSWORD
+            value: # AMQ Online messaging user password
+# EXCLUDE BEGIN
+          - name: AMQP_HOST
+            value: messaging-j1b6hvxqgx.amq-online-infra.svc
+          - name: AMQP_PORT
+            value: 5672
+          - name: AMQP_USERNAME
+            value: rhighley-msguser
+          - name: AMQP_PASSWORD
+            value: password
+# EXCLUDE END
+          - name: POSTGRESQL_SERVICE_NAME
+            value: postgresql
+          - name: POSTGRESQL_SERVICE_DATABASE
+            value: sampledb
+          - name: POSTGRESQL_SERVICE_USERNAME
+            value: postgres
+          - name: POSTGRESQL_SERVICE_PASSWORD
+            value: postgres              

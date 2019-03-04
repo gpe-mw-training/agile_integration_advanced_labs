@@ -1,0 +1,27 @@
+apiVersion: user.enmasse.io/v1alpha1
+kind: MessagingUser
+metadata:
+  name: ## Messaging user name with address space, e.g. rth-fuse-space.fuse-msguser
+# EXCLUDE-BEGIN
+  name: gpe-fuse-space.rhighley-msguser
+# EXCLUDE-END
+spec:
+  username: # AMQ messaging user name
+  authentication:
+    type: password
+    password: # Base64-encoded password
+  authorization:
+    - addresses: [] # AMQ addresses to authorize
+      operations: [] # AMQ Online operations to authorize: "send", "recv", "view", and/or "manage"
+    # Multiple "addresses-operations" pairs can be specified for fine-grained authorization control
+# EXCLUDE-BEGIN
+  username: rhighley-msguser
+  authentication:
+    type: password
+    password: cGFzc3dvcmQ= # Base64-encoded
+  authorization:
+    - addresses: ["accountQueue", "inputQueue"]
+      operations: ["send", "recv"]
+    - addresses: ["errorNotification"]
+      operations: ["send", "recv", "view", "manage"]
+# EXCLUDE-END

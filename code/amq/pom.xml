@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.redhat.gpte.training.agile</groupId>
+    <artifactId>amq-all</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <name>Advanced Agile Integration :: AMQ :: Use Case :: All</name>
+
+    <modules>
+        <module>01_update-rest-publish-and-fix-errors/update-rest-publish-and-fix-errors-lab</module>
+        <module>02_update-enrich-content-REST-and-WS-microservices/update-amq-enrich-persist-lab</module>
+    </modules>
+
+</project>
