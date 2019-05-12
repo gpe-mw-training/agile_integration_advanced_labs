@@ -122,7 +122,7 @@
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>io.fabric8</groupId>
+                    <groupId>org.jboss.redhat-fuse</groupId>
                     <artifactId>fabric8-maven-plugin</artifactId>
                     <version>${fuse.version}</version>
                 </plugin>
