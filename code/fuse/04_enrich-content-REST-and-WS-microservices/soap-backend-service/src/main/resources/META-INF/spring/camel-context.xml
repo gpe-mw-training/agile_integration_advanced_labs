@@ -19,7 +19,7 @@
     xmlns:osgi="http://www.springframework.org/schema/osgi"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd        http://www.springframework.org/schema/osgi        http://www.springframework.org/schema/osgi/spring-osgi.xsd                 http://camel.apache.org/schema/spring        http://camel.apache.org/schema/spring/camel-spring.xsd  http://camel.apache.org/schema/cxf  http://camel.apache.org/schema/cxf/camel-cxf.xsd">
     <bean class="org.fuse.usecase.service.CustomerWSImpl" id="customerWSImplBean"/>
-    <cxf:cxfEndpoint address="http://0.0.0.0:8080/ws/customerService"
+    <cxf:cxfEndpoint address="http://0.0.0.0:9090/ws/customerService"
         id="customerWebService" loggingFeatureEnabled="true" serviceClass="org.fuse.usecase.service.CustomerWS"/>
     <camelContext id="_camelContext1" xmlns="http://camel.apache.org/schema/spring">
         <!-- WebService -->

@@ -17,17 +17,19 @@
   </licenses>
   <properties>
     <!-- configure the versions you want to use here -->
-    <fuse.version>6.3.0.redhat-343</fuse.version>
-    <fabric8.version>2.2.170.redhat-000010</fabric8.version>
-    <karaf.plugin.version>4.0.8.redhat-000026</karaf.plugin.version>
+    <fuse.version>6.3.0.redhat-446</fuse.version>
+    <fabric8.version>3.0.11.fuse-760025-redhat-00001</fabric8.version>
+    <karaf.plugin.version>4.2.6.fuse-760032-redhat-00001</karaf.plugin.version>
 
     <!-- maven plugin versions -->
-    <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
     <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
     <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
     <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+    <!-- <fabric8.maven.plugin.version>3.5.42.fuse-760026-redhat-00001</fabric8.maven.plugin.version> -->
     <fabric8.maven.plugin.version>3.1.80.redhat-000010</fabric8.maven.plugin.version>
+
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -56,7 +58,9 @@
       and the feature repo itself is not added in etc/org.apache.karaf.features.cfg file -->
       <groupId>org.jboss.fuse</groupId>
       <artifactId>fuse-karaf-framework</artifactId>
+      <version>7.6.0.fuse-760025-redhat-00001</version>
       <type>kar</type>
+      <scope>compile</scope>
       <!-- no need to download kar dependencies -->
       <exclusions>
         <exclusion>
@@ -139,7 +143,32 @@
             <artifactId>cxf-rt-bindings-soap</artifactId>
         </dependency>
 
-           
+
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jaxb</groupId>
+      <artifactId>jaxb-runtime</artifactId>
+      <version>2.3.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.activation</groupId>
+      <artifactId>javax.activation-api</artifactId>
+      <version>1.2.0</version>
+    </dependency>
+<dependency>
+    <groupId>javax.xml.ws</groupId>
+    <artifactId>jaxws-api</artifactId>
+    <version>2.3.1</version>
+</dependency>
+
+
+
+	
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -307,7 +336,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.9.1</version>
+        <version>3.0.0</version>
         <executions>
           <execution>
             <id>attach-artifacts</id>
@@ -346,7 +375,7 @@
       <plugin>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-maven-plugin</artifactId>
-        <version>2.17.0.redhat-630356</version>
+        <version>2.23.2.fuse-760030-redhat-00001</version>
         <configuration>
           <fileApplicationContextUri>src/main/resources/META-INF/spring/camel-context.xml</fileApplicationContextUri>
         </configuration>
@@ -391,6 +420,7 @@
           </execution>
         </executions>
         <configuration>
+      	  <framework>framework</framework>
           <!-- we are using karaf 2.4.x -->
           <karafVersion>v24</karafVersion>
           <useReferenceUrls>true</useReferenceUrls>
@@ -411,7 +441,7 @@
             <feature>cxf-http-jetty</feature>
             <feature>camel-cxf</feature>
             <feature>camel-http</feature>
-	    <feature>fabric8-karaf-checks</feature>
+      	    <feature>fabric8-karaf-checks</feature>
 
             <!-- swagger -->
 
